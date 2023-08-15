@@ -81,7 +81,7 @@ export const RightTextStyled = styled.h4`
     height: 75%;
     bottom: -2px;
     left: -10px;
-    border: 1px solid ${Colors.main.white};
+    border: 1px solid ${Colors.main.orangish};
   }
 
   &::after {
@@ -91,7 +91,7 @@ export const RightTextStyled = styled.h4`
     height: 50%;
     bottom: -2px;
     left: -9px;
-    background-color: ${Colors.main.white};
+    background-color: ${Colors.main.orangish};
   }
 `;
 
@@ -149,13 +149,25 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
       text-shadow: -1px -1px 0 ${Colors.main.white}, 1px -1px 0 ${Colors.main.white}, -1px 1px 0 ${Colors.main.white}, 1px 1px 0 ${Colors.main.white};
     }
 
-    ${LeftTextStyled}, ${RightTextStyled} {
+    ${RightTextStyled} {
       &::before {
         border: 1px solid ${Colors.main.white};
       }
 
       &::after {
         background-color: ${Colors.main.white};
+      }
+    }
+
+    ${LeftTextStyled} {
+      color: ${Colors.main.orangish};
+
+      &::before {
+        border: 1px solid ${Colors.main.orangish};
+      }
+
+      &::after {
+        background-color: ${Colors.main.orangish};
       }
     }
   `}

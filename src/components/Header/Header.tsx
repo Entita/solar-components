@@ -12,7 +12,7 @@ export default function Header() {
   const qaRef = React.useRef<HTMLButtonElement | null>(null)
   const [hoveredMenuDetails, setHoveredMenuDetails] = React.useState<{ width: number; anotherWidth: number; left: number; anotherLeft: number }>({ width: 0, anotherWidth: 0, left: 0, anotherLeft: 0 })
   const currRoute = usePathname().split('/')[1]
-  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(true)
+  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(window.innerWidth > 1320)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const menuRoutes = [
     {

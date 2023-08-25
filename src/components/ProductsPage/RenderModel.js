@@ -6,24 +6,29 @@ import { useGLTF, OrbitControls } from "@react-three/drei"
 export default function RenderModel({ model }) {
   return (
     <>
-      <Canvas shadows camera={{ position: [-1, 0.5, -3.8], fov: 45 }}>
-        <color attach='background' args={['lightgrey']} />
-        <hemisphereLight intensity={0.15} />
-        <spotLight color='white' position={[0, 3.5, 0]} decay={0.5} intensity={1} penumbra={1} angle={Math.PI / 6} castShadow />
-        <Ground />
+      <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
+        <hemisphereLight intensity={0.25} />
+        <spotLight color='white' position={[0, 3.5, 0]} decay={0.2} intensity={1} penumbra={1} angle={Math.PI / 6} castShadow />
+        <Slope />
         <Model model={model} />
-        <OrbitControls maxPolarAngle={Math.PI / 1.8} autoRotate autoRotateSpeed={0.35} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
+        <OrbitControls maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={0.35} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
       </Canvas>
     </>
   )
 }
 
-function Ground() {
+function Slope() {
   return (
-    <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, -1.1, 0]} receiveShadow>
-      <planeGeometry args={[1000, 1000]} />
-      <meshPhongMaterial color={'white'} side={DoubleSide} />
-    </mesh>
+    <>
+      <mesh position={[0, -0.65, 0]} receiveShadow>
+        <cylinderGeometry args={[1.7, 1.7, 0.3]} />
+        <meshPhongMaterial color={'#ffa70f'} side={DoubleSide} />
+      </mesh>
+      <mesh position={[0, -0.45, 0]} receiveShadow>
+        <cylinderGeometry args={[1.55, 1.7, 0.1]} />
+        <meshPhongMaterial color={'#ffa70f'} side={DoubleSide} />
+      </mesh>
+    </>
   )
 }
 
@@ -33,7 +38,7 @@ function Model({ model }) {
 
   return (
     <>
-      <group ref={ref} position={[0, -0.75, 0]}>
+      <group ref={ref} position={[0, -0.05, 0]}>
         {Object.values(nodes).filter(node => node.isMesh).map((node, index) =>
           <mesh key={index} {...adjustments[model]} receiveShadow castShadow geometry={node.geometry}>
             <meshStandardMaterial color='silver' metalness={0.5} roughness={0.4} />

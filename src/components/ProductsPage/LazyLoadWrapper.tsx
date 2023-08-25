@@ -19,7 +19,7 @@ export default function LazyLoadWrapper(props: any) {
   }, [isOnScreen])
 
   return (
-    <div ref={ref}>
+    <div ref={ref} style={{ minHeight: '320px' }}>
       {wasOnScreen ? (
         <Product {...props} />
       ) : (

@@ -7,6 +7,9 @@ export const WrapperStyled = styled.div`
 `;
 
 export const CanvasStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 320px;
   height: 320px;
 `;

@@ -2,6 +2,8 @@ import React, { Suspense } from 'react'
 import RenderModel from './RenderModel';
 import { WrapperStyled, MenuWrapperStyled, ProductTitleStyled, MenuContainerStyled, MenuStyled, ProductDownloadStyled, ContentWrapperStyled, CanvasStyled, ProductDescStyled } from './Product.style';
 import Image from 'next/image';
+import { FadeLoader } from 'react-spinners';
+import { Colors } from '@/utils/Colors';
 
 export default function Product(props: any) {
   const [menu, setMenu] = React.useState<string>('desc')
@@ -9,7 +11,7 @@ export default function Product(props: any) {
   return (
     <WrapperStyled>
       <CanvasStyled>
-        <Suspense fallback={<>Loading</>}>
+        <Suspense fallback={<FadeLoader color={Colors.main.orangish} />}>
           <RenderModel model={props.model} />
         </Suspense>
       </CanvasStyled>

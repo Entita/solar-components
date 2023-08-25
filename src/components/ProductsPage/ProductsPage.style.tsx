@@ -102,3 +102,23 @@ export const DownloadLoadingStyled = styled.div`
   height: 24px;
   border-radius: 6px;
 `;
+
+export const ProductsHeaderWrapperStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+`;
+
+export const ProductsTitleStyled = styled.h2`
+  color: ${Colors.main.black};
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+`;
+
+export const ProductsDescStyled = styled.p`
+  color: ${Colors.main.black};
+  font-size: 16px;
+  font-weight: 200;
+  margin: 0;
+`;

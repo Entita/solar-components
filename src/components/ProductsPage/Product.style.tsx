@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const WrapperStyled = styled.div`
   display: flex;
   justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
 `;
 
 export const CanvasStyled = styled.div`
@@ -26,10 +28,10 @@ export const MenuContainerStyled = styled.div`
 `;
 
 export const MenuStyled = styled.span<{ selected: Boolean }>`
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: ${({ selected }) => selected ? 'none' : 'underline'};
   color: ${({ selected }) => selected ? Colors.main.lightOrange : Colors.main.orangish};
   font-weight: 500;
+  cursor: pointer;
   transition: .2s ease;
 
   &:hover {

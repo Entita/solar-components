@@ -21,13 +21,13 @@ export default function ContactPage() {
         </PersonWrapperStyled>
 
         <PersonRightWrapperStyled>
-          <PersonRightDescWrapperStyled>
+          {/* <PersonRightDescWrapperStyled>
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
             <RightPersonNameStyled>Miroslav Pelikán</RightPersonNameStyled>
             <PersonEmailStyled>miroslav.pelikan@solar-components.cz</PersonEmailStyled>
             <PersonRightPhoneStyled>(+420) 607 885 468</PersonRightPhoneStyled>
           </PersonRightDescWrapperStyled>
-          <RightPersonImageStyled />
+          <RightPersonImageStyled /> */}
         </PersonRightWrapperStyled>
 
         <MapWrapperStyled>

@@ -61,6 +61,8 @@ export const PersonWrapperStyled = styled.div`
 `;
 
 export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
+  min-height: 25vh; // remove after adding Peli
+
   position: relative;
   margin-left: auto;
 
@@ -83,7 +85,12 @@ export const PersonImageStyled = styled.div`
   border-radius: 50%;
   width: 250px;
   aspect-ratio: 1/1;
-  border: 12px solid ${Colors.main.orangish};
+  border: 12px solid ${Colors.main.yellow};
+  background-image: url('avatar.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: ${Colors.main.orangish};
 `;
 
 export const RightPersonImageStyled = styled(PersonImageStyled)`

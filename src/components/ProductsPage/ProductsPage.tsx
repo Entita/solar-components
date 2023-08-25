@@ -1,5 +1,5 @@
 import React from 'react'
-import { WrapperStyled } from './ProductsPage.style'
+import { ProductsDescStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
 import LazyLoadWrapper from './LazyLoadWrapper'
 
 const products = [
@@ -48,6 +48,10 @@ const products = [
 export default function ProductsPage() {
   return (
     <WrapperStyled>
+      <ProductsHeaderWrapperStyled>
+        <ProductsTitleStyled>Naše produkty</ProductsTitleStyled>
+        <ProductsDescStyled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolore totam ipsa quis? Cumque assumenda consequuntur sint ipsam veritatis impedit, quasi totam facere aperiam autem deleniti in suscipit repellendus saepe?</ProductsDescStyled>
+      </ProductsHeaderWrapperStyled>
       {products.map((product, index) =>
         <LazyLoadWrapper
           key={index}

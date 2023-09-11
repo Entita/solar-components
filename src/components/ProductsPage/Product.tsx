@@ -8,6 +8,15 @@ import { Colors } from '@/utils/Colors';
 export default function Product(props: any) {
   const [menu, setMenu] = React.useState<string>('desc')
 
+  const download = (url: any) => {
+    const a = document.createElement('a')
+    a.href = url
+    a.download = url.split('/').pop()
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+  }
+
   return (
     <WrapperStyled>
       <CanvasStyled>
@@ -30,7 +39,7 @@ export default function Product(props: any) {
             <>Chyba</>
           )}
         </ContentWrapperStyled>
-        <ProductDownloadStyled>Stáhnout PDF</ProductDownloadStyled>
+        <ProductDownloadStyled type='submit' onClick={() => download(`avatar.png`)}>Stáhnout PDF</ProductDownloadStyled>
       </MenuWrapperStyled>
     </WrapperStyled>
   )

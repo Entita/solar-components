@@ -1,5 +1,5 @@
 import { Colors } from "@/utils/Colors";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const WrapperStyled = styled.div`
   display: flex;
@@ -14,6 +14,19 @@ export const CanvasStyled = styled.div`
   align-items: center;
   width: 320px;
   height: 320px;
+
+  --s: 50px; /* the size on the corner */
+  --t: 3px;  /* the thickness of the border */
+  --g: 10px; /* the gap between the border and image */
+  
+  padding: calc(var(--g) + var(--t));
+  outline: var(--t) solid ${Colors.main.orangish}; /* the color here */
+  outline-offset: calc(-1*var(--t));
+  -webkit-mask:
+    conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
+    0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+    linear-gradient(#000 0 0) content-box;
+  transition: .4s;
 `;
 
 export const MenuWrapperStyled = styled.div`
@@ -28,15 +41,33 @@ export const MenuContainerStyled = styled.div`
 `;
 
 export const MenuStyled = styled.span<{ selected: Boolean }>`
+  position: relative;
   text-decoration: ${({ selected }) => selected ? 'none' : 'underline'};
   color: ${({ selected }) => selected ? Colors.main.lightOrange : Colors.main.orangish};
   font-weight: 500;
   cursor: pointer;
-  transition: .2s ease;
+  padding: 4px;
+  transition: color .2s ease;
 
   &:hover {
     color: ${Colors.main.lightOrange};
   }
+
+  ${({ selected }) => selected && css`
+    border: 1px solid ${Colors.main.orange};
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: white;
+    }
+  `}
 `;
 
 export const ContentWrapperStyled = styled.div`
@@ -45,6 +76,10 @@ export const ContentWrapperStyled = styled.div`
   align-items: center;
   height: 100%;
   width: 500px;
+  border-left: 1px solid ${Colors.main.orange};
+  border-right: 1px solid ${Colors.main.orange};
+  border-top: 1px solid ${Colors.main.orange};
+  padding: 0 8px;
 `;
 
 export const ProductTitleStyled = styled.h3`
@@ -80,23 +115,26 @@ export const ProductDownloadStyled = styled.button`
     content: '';
     background-color: ${Colors.main.orange};
     height: 1px;
-    width: 50%;
-    left: -50%;
+    left: calc(-50% - 1px);
+    width: calc(200% + 2px);
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
+    z-index: -1;
   }
 
   &::after {
     position: absolute;
     content: '';
-    background-color: ${Colors.main.orange};
-    height: 1px;
-    width: 50%;
-    right: -50%;
-    top: 50%;
-    transform: translateY(-50%);
+    height: calc(50% + 2px);
+    left: calc(-50% - 2px);
+    width: calc(200% + 2px);
+    top: -1px;
     pointer-events: none;
+    border-left: 1px solid ${Colors.main.orange};
+    border-right: 1px solid ${Colors.main.orange};
+    background-color: white;
+    z-index: -2;
   }
 
   &:hover {

@@ -1,7 +1,6 @@
 import React from 'react'
-import { DoubleSide } from 'three'
 import { Canvas } from "@react-three/fiber"
-import { useGLTF, OrbitControls } from "@react-three/drei"
+import { useGLTF, OrbitControls, useTexture } from "@react-three/drei"
 
 export default function RenderModel({ model }) {
   return (
@@ -9,39 +8,45 @@ export default function RenderModel({ model }) {
       <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
         <hemisphereLight intensity={1} />
         <spotLight color='white' position={[0, 3.5, 0]} decay={0.2} intensity={1} penumbra={1} angle={Math.PI / 6} castShadow />
-        {/* <Slope /> */}
-        <Model model={model} />
+        <Sphere />
+        {/* <Model model={model} />  */}
         <OrbitControls maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
       </Canvas>
     </>
   )
 }
 
-function Slope() {
+function Sphere() {
+ const textures = useTexture({ 
+    map: "/models/metal_color.png",
+    roughnessMap: "/models/metal_roughness.png",
+    metalnessMap: "/models/metal_metalness.png",
+    normalMap: "/models/metal_normal.png",
+  })
+
   return (
-    <>
-      <mesh position={[0, -0.65, 0]} receiveShadow>
-        <cylinderGeometry args={[1.7, 1.7, 0.3]} />
-        <meshPhongMaterial color={'#ffa70f'} side={DoubleSide} />
-      </mesh>
-      <mesh position={[0, -0.45, 0]} receiveShadow>
-        <cylinderGeometry args={[1.55, 1.7, 0.1]} />
-        <meshPhongMaterial color={'#ffa70f'} side={DoubleSide} />
-      </mesh>
-    </>
+    <mesh>
+      <sphereGeometry args={[1]} />
+      <meshStandardMaterial metalness={0.8} roughness={0.4} {...textures} />
+    </mesh>
   )
 }
 
 function Model({ model }) {
-  const ref = React.useRef()
-  const { nodes } = useGLTF(`models/${model}.gltf`)
+  const { nodes } = useGLTF(`/models/${model}.gltf`)
+  const textures = useTexture({ 
+    map: "/models/metal_color.png",
+    roughnessMap: "/models/metal_roughness.png",
+    metalnessMap: "/models/metal_metalness.png",
+    normalMap: "/models/metal_normal.png",
+  })
 
   return (
     <>
-      <group ref={ref} position={[0, -0.35, 0]}>
+      <group>
         {Object.values(nodes).filter(node => node.isMesh).map((node, index) =>
           <mesh key={index} {...adjustments[model]} receiveShadow castShadow geometry={node.geometry}>
-            <meshStandardMaterial color={adjustments[model].material} metalness={1} roughness={0.4} />
+            <meshStandardMaterial metalness={0.4} roughness={0.3} {...textures} />
           </mesh>
         )}
       </group>
@@ -52,42 +57,42 @@ function Model({ model }) {
 const adjustments = {
   'hak': {
     scale: 0.0125,
-    position: [0.1, 0, -0.8],
+    position: [0.1, -0.35, -0.8],
     material: `silver`,
   },
   'cepicnik': {
     scale: 0.05,
-    position: [0, 0.25, 0.5],
+    position: [0, -0.1, 0.5],
     material: `silver`,
   },
   'M10_hex': {
     scale: 0.05,
-    position: [0, 0.25, 1],
+    position: [0, -0.1, 1],
     material: `silver`,
   },
   'M10_valcova': {
     scale: 0.05,
-    position: [0, 0.25, 1],
+    position: [0, -0.1, 1],
     material: `silver`,
   },
   'M10_valcova_25': {
     scale: 0.05,
-    position: [0, 0.25, 1],
+    position: [0, -0.1, 1],
     material: `silver`,
   },
   'M10': {
     scale: 0.05,
-    position: [0, 0.25, 0.25],
+    position: [0, -0.1, 0.25],
     material: `silver`,
   },
   'omega': {
     scale: 0.04,
-    position: [-0.5, -0.45, -0.25],
+    position: [-0.5, -0.8, -0.25],
     material: `#848789`,
   },
   'z': {
     scale: 0.03,
-    position: [-0.25, -0.2, 0.5],
+    position: [-0.25, -0.55, 0.5],
     material: `silver`,
   },
 }

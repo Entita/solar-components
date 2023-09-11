@@ -34,7 +34,7 @@ const pulsOut = keyframes`
     box-shadow: 0 0 0 1rem #fff;
     opacity: 1;
   }
-`   
+`
 
 export const LoaderStyled = styled.div`
   position: relative;

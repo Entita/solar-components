@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
 })
   
 
-export async function sendMail(toEmail, subject, message, htmlMessage) {
+const sendMail = async(toEmail, subject, message, htmlMessage) => {
   const mailOptions = {
     from: `info@solar-components.cz`,
     to: toEmail,

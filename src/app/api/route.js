@@ -32,7 +32,7 @@ export async function POST(req) {
     `
  
     const success = await sendMail(
-      "entitak@gmail.com",
+      "info@solar-components.cz",
       "Poptávka z webu",
       message,
       formattedMessage,

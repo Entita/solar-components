@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber"
 import { useGLTF, OrbitControls, useTexture, Environment } from "@react-three/drei"
 
 export default function RenderModel({ model }) {
-
   return (
     <>
       <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
@@ -18,11 +17,11 @@ export default function RenderModel({ model }) {
 function Model({ model }) {
   const { nodes } = useGLTF(`/models/${model}.gltf`)
   const material = adjustments[model].material
-  const textures = useTexture({ 
-    map: `/models/${material}_color.png`,
-    roughnessMap: `/models/${material}_roughness.png`,
-    metalnessMap: `/models/${material}_metalness.png`,
-    normalMap: `/models/${material}_normal.png`,
+  const texture = useTexture({ 
+    map: `/models/metal_color.png`,
+    roughnessMap: `/models/metal_roughness.png`,
+    metalnessMap: `/models/metal_metalness.png`,
+    normalMap: `/models/metal_normal.png`,
   })
 
   return (
@@ -30,7 +29,9 @@ function Model({ model }) {
       <group>
         {Object.values(nodes).filter(node => node.isMesh).map((node, index) =>
           <mesh key={index} {...adjustments[model]} receiveShadow castShadow geometry={node.geometry}>
-            <meshStandardMaterial metalness={1} roughness={1} {...textures} />
+            {material === 'metal' ? <meshStandardMaterial metalness={1} roughness={1} {...texture} />
+            : material === 'aluminium' ? <meshStandardMaterial metalness={0} roughness={1} {...texture} />
+            : <meshBasicMaterial color='red' /> }
           </mesh>
         )}
       </group>
@@ -72,11 +73,11 @@ const adjustments = {
   'omega': {
     scale: 0.04,
     position: [-0.5, -0.8, -0.25],
-    material: `metal`,
+    material: `aluminium`,
   },
   'z': {
     scale: 0.03,
     position: [-0.25, -0.55, 0.5],
-    material: `metal`,
+    material: `aluminium`,
   },
 }

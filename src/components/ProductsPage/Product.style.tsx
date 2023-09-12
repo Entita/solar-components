@@ -5,7 +5,7 @@ export const WrapperStyled = styled.div`
   display: flex;
   justify-content: space-around;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 `;
 
 export const CanvasStyled = styled.div`
@@ -20,7 +20,7 @@ export const CanvasStyled = styled.div`
   --g: 10px; /* the gap between the border and image */
   
   padding: calc(var(--g) + var(--t));
-  outline: var(--t) solid ${Colors.main.orangish}; /* the color here */
+  outline: var(--t) solid ${Colors.main.orangish};
   outline-offset: calc(-1*var(--t));
   -webkit-mask:
     conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
@@ -80,6 +80,11 @@ export const ContentWrapperStyled = styled.div`
   border-right: 1px solid ${Colors.main.orange};
   border-top: 1px solid ${Colors.main.orange};
   padding: 0 8px;
+
+  & > img {
+    max-width: calc(100% - 1rem);
+    max-height: calc(100% - 1rem);
+  }
 `;
 
 export const ProductTitleStyled = styled.h3`

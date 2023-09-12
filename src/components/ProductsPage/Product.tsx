@@ -34,7 +34,8 @@ export default function Product(props: any) {
           {menu === 'desc' ? (
             <ProductDescStyled>{props.desc}</ProductDescStyled>
           ) : menu === 'drawing' ? (
-            <Image src='/technical_drawing.png' alt='technical drawing' height={186} width={271} />
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={`/models/${props.model}.png`} alt='technical drawing' />
           ) : (
             <>Chyba</>
           )}

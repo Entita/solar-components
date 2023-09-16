@@ -19,11 +19,6 @@ const products = [
     desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus illum enim eum molestiae. Doloremque, ipsum inventore repudiandae nihil dolorum officia aliquam! In quidem quae iste delectus laboriosam provident esse temporibus.',
   },
   {
-    id: 'cepicnik',
-    name: 'Čepičník',
-    desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus illum enim eum molestiae. Doloremque, ipsum inventore repudiandae nihil dolorum officia aliquam! In quidem quae iste delectus laboriosam provident esse temporibus.',
-  },
-  {
     id: 'M10_hex',
     name: 'M10 hex šroub',
     desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus illum enim eum molestiae. Doloremque, ipsum inventore repudiandae nihil dolorum officia aliquam! In quidem quae iste delectus laboriosam provident esse temporibus.',

@@ -63,11 +63,6 @@ const adjustments = {
     position: [0.1, -0.35, -0.8],
     material: `metal`,
   },
-  'cepicnik': {
-    scale: 0.05,
-    position: [0, -0.1, 0.5],
-    material: `metal`,
-  },
   'M10_hex': {
     scale: 0.05,
     position: [0, -0.1, 1],

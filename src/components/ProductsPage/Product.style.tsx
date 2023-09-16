@@ -43,14 +43,14 @@ export const MenuContainerStyled = styled.div`
 export const MenuStyled = styled.span<{ selected: Boolean }>`
   position: relative;
   text-decoration: ${({ selected }) => selected ? 'none' : 'underline'};
-  color: ${({ selected }) => selected ? Colors.main.lightOrange : Colors.main.orangish};
+  color: ${({ selected }) => selected ? Colors.main.orange : Colors.main.orangish};
   font-weight: 500;
   cursor: pointer;
   padding: 4px;
   transition: color .2s ease;
 
   &:hover {
-    color: ${Colors.main.lightOrange};
+    text-decoration: none;
   }
 
   ${({ selected }) => selected && css`
@@ -119,7 +119,7 @@ export const ProductDownloadStyled = styled.button`
     position: absolute;
     content: '';
     background-color: ${Colors.main.orange};
-    height: 1px;
+    height: 2px;
     left: calc(-50% - 1px);
     width: calc(200% + 2px);
     top: 50%;

@@ -7,10 +7,28 @@ export default function RenderModel({ model }) {
     <>
       <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
         <Environment preset='sunset' resolution={256} blur={1} />
+        {/* <Sphere /> */}
         <Model model={model} /> 
-        <OrbitControls maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
+        <OrbitControls autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
       </Canvas>
     </>
+  )
+}
+
+
+function Sphere() {
+  const texture = useTexture({ 
+    map: `/models/metal_color.png`,
+    roughnessMap: `/models/metal_roughness.png`,
+    metalnessMap: `/models/metal_metalness.png`,
+    normalMap: `/models/metal_normal.png`,
+  })
+
+  return (
+    <mesh>
+      <sphereGeometry args={[1]} />
+      <meshStandardMaterial metalness={1} {...texture} />
+    </mesh>
   )
 }
 

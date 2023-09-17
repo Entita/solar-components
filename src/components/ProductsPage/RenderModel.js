@@ -8,7 +8,7 @@ export default function RenderModel({ model }) {
       <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
         <Environment preset='sunset' resolution={256} blur={1} />
         <Model model={model} /> 
-        <OrbitControls  autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
+        <OrbitControls autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
       </Canvas>
     </>
   )

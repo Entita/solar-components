@@ -99,6 +99,13 @@ export const ContentWrapperStyled = styled.div`
     color: rgba(0, 0, 0, .5);
     pointer-events: none;
   }
+
+  & > span {
+    position: absolute!important;
+    top: calc(50% + 30px)!important;
+    left: calc(50% + 30px)!important;
+    transform: translate(-50%, -50%)!important;
+  }
 `;
 
 export const ProductTitleStyled = styled.h3`

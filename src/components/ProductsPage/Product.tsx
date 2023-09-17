@@ -12,7 +12,7 @@ const ProductLoading = ({ model, canvasSize }: { model: string, canvasSize: { wi
   return (
     <ProductLoadingWrapperStyled ref={containerRef}>
       <FadeLoader color={Colors.main.orangish} />
-      <Image priority src={`/models/${model}_bg.png`} alt={`${model} loading`} width={canvasSize.width - 6} height={canvasSize.height - 6} />
+      <Image unoptimized={false} priority src={`/models/${model}_bg.png`} alt={`${model} loading`} width={canvasSize.width - 6} height={canvasSize.height - 6} />
     </ProductLoadingWrapperStyled>
   )
 }
@@ -21,6 +21,7 @@ export default function Product(props: any) {
   const [menu, setMenu] = React.useState<string>('desc')
   const [size, setSize] = React.useState<{ width: number; height: number }>({ width: 0, height: 0 })
   const [canvasSize, setCanvasSize] = React.useState<{ width: number; height: number }>({ width: 0, height: 0 })
+  const [loadingImage, setLoadingImage] = React.useState<boolean>(true)
   const containerRef = React.useRef<HTMLDivElement | null>(null)
   const canvasRef = React.useRef<HTMLDivElement | null>(null)
 
@@ -66,8 +67,12 @@ export default function Product(props: any) {
             <ProductDescStyled>{props.desc}</ProductDescStyled>
           ) : menu === 'drawing' ? (
             <>
-              <ZoomInIcon />
-              <Image priority onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.png`} alt='technical drawing' width={size.width} height={size.height - 1} />
+              {loadingImage ? (
+                <FadeLoader color={Colors.main.orangish} />
+              ) : (
+                <ZoomInIcon />
+              )}
+              <Image onLoadingComplete={() => setLoadingImage(false)} unoptimized={false} priority onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.png`} alt='technical drawing' width={size.width} height={size.height - 1} />
             </>
           ) : (
             <>Chyba</>

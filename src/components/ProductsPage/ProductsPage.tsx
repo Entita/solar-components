@@ -2,7 +2,6 @@ import React from 'react'
 import { ProductsDescStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
 import LazyLoadWrapper from './LazyLoadWrapper'
 import Zoom from './Zoom';
-import Head from 'next/head';
 
 export const products = [
   {
@@ -47,15 +46,6 @@ export default function ProductsPage() {
 
   return (
     <>
-      <Head>
-        {products.map((product, index) => (
-          <React.Fragment key={index}>
-            <link rel="preload" href={`/models/${product.id}.png`} as="image" />
-            <link rel="preload" href={`/models/${product.id}_bg.png`} as="image" />
-          </React.Fragment>
-        ))}
-      </Head>
-
       <WrapperStyled>
         {zoomedElement && <Zoom setZoomedElement={setZoomedElement}>{zoomedElement}</Zoom>}
         <ProductsHeaderWrapperStyled>

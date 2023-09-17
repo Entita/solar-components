@@ -66,11 +66,13 @@ export const MenuStyled = styled.span<{ selected: Boolean }>`
       right: 0;
       height: 1px;
       background-color: white;
+      z-index: 1;
     }
   `}
 `;
 
 export const ContentWrapperStyled = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +84,20 @@ export const ContentWrapperStyled = styled.div`
   padding: 0 8px;
 
   & > img {
-    max-width: calc(100% - 1rem);
-    max-height: calc(100% - 1rem);
+    cursor: zoom-in;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+
+  & > svg {
+    position: absolute;
+    display: flex;
+    top: 3px;
+    right: 1px;
+    z-index: 7;
+    color: rgba(0, 0, 0, .5);
+    pointer-events: none;
   }
 `;
 
@@ -145,5 +159,19 @@ export const ProductDownloadStyled = styled.button`
   &:hover {
     background-color: ${Colors.main.orangish};
     color: ${Colors.main.white};
+  }
+`;
+
+export const ProductLoadingWrapperStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  & > span {
+    position: absolute!important;
+    top: 28px!important;
+    right: -18px!important;
+    left: unset!important;
   }
 `;

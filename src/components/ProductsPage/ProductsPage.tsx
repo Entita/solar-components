@@ -1,6 +1,7 @@
 import React from 'react'
 import { ProductsDescStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
 import LazyLoadWrapper from './LazyLoadWrapper'
+import Zoom from './Zoom';
 
 const products = [
   {
@@ -41,8 +42,11 @@ const products = [
 ]
 
 export default function ProductsPage() {
+  const [zoomedElement, setZoomedElement] = React.useState<any>(null)
+
   return (
     <WrapperStyled>
+      {zoomedElement && <Zoom setZoomedElement={setZoomedElement}>{zoomedElement}</Zoom>}
       <ProductsHeaderWrapperStyled>
         <ProductsTitleStyled>Naše produkty</ProductsTitleStyled>
         <ProductsDescStyled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolore totam ipsa quis? Cumque assumenda consequuntur sint ipsam veritatis impedit, quasi totam facere aperiam autem deleniti in suscipit repellendus saepe?</ProductsDescStyled>
@@ -53,6 +57,7 @@ export default function ProductsPage() {
           model={product.id}
           name={product.name}
           desc={product.desc}
+          setZoomedElement={setZoomedElement}
         />
       )}
     </WrapperStyled>

@@ -12,7 +12,7 @@ const ProductLoading = ({ model, canvasSize }: { model: string, canvasSize: { wi
   return (
     <ProductLoadingWrapperStyled ref={containerRef}>
       <FadeLoader color={Colors.main.orangish} />
-      <Image priority src={`/models/${model}_bg.png`} alt={`${model} loading`} width={canvasSize.width - 6} height={canvasSize.height - 6} />
+      <Image src={`/models/${model}_bg.png`} alt={`${model} loading`} width={canvasSize.width - 6} height={canvasSize.height - 6} />
     </ProductLoadingWrapperStyled>
   )
 }
@@ -67,7 +67,7 @@ export default function Product(props: any) {
           ) : menu === 'drawing' ? (
             <>
               <ZoomInIcon />
-              <Image priority onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.png`} alt='technical drawing' width={size.width} height={size.height - 1} />
+              <Image onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.png`} alt='technical drawing' width={size.width} height={size.height - 1} />
             </>
           ) : (
             <>Chyba</>

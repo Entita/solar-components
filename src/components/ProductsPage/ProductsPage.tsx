@@ -2,8 +2,9 @@ import React from 'react'
 import { ProductsDescStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
 import LazyLoadWrapper from './LazyLoadWrapper'
 import Zoom from './Zoom';
+import Head from 'next/head';
 
-const products = [
+export const products = [
   {
     id: 'hak',
     name: 'Hák',
@@ -45,21 +46,32 @@ export default function ProductsPage() {
   const [zoomedElement, setZoomedElement] = React.useState<any>(null)
 
   return (
-    <WrapperStyled>
-      {zoomedElement && <Zoom setZoomedElement={setZoomedElement}>{zoomedElement}</Zoom>}
-      <ProductsHeaderWrapperStyled>
-        <ProductsTitleStyled>Naše produkty</ProductsTitleStyled>
-        <ProductsDescStyled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolore totam ipsa quis? Cumque assumenda consequuntur sint ipsam veritatis impedit, quasi totam facere aperiam autem deleniti in suscipit repellendus saepe?</ProductsDescStyled>
-      </ProductsHeaderWrapperStyled>
-      {products.map((product, index) =>
-        <LazyLoadWrapper
+    <>
+      <Head>
+        {products.map((product, index) => (
+          <React.Fragment key={index}>
+            <link rel="preload" href={`/models/${product.id}.png`} as="image" />
+            <link rel="preload" href={`/models/${product.id}_bg.png`} as="image" />
+          </React.Fragment>
+        ))}
+      </Head>
+
+      <WrapperStyled>
+        {zoomedElement && <Zoom setZoomedElement={setZoomedElement}>{zoomedElement}</Zoom>}
+        <ProductsHeaderWrapperStyled>
+          <ProductsTitleStyled>Naše produkty</ProductsTitleStyled>
+          <ProductsDescStyled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolore totam ipsa quis? Cumque assumenda consequuntur sint ipsam veritatis impedit, quasi totam facere aperiam autem deleniti in suscipit repellendus saepe?</ProductsDescStyled>
+        </ProductsHeaderWrapperStyled>
+        {products.map((product, index) =>
+          <LazyLoadWrapper
           key={index}
           model={product.id}
           name={product.name}
           desc={product.desc}
           setZoomedElement={setZoomedElement}
-        />
-      )}
-    </WrapperStyled>
+          />
+          )}
+      </WrapperStyled>
+    </>
   )
 }

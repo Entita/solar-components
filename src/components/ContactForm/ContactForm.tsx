@@ -1,7 +1,8 @@
 import React from 'react'
-import CloseIcon from '@mui/icons-material/Close';
-import { BlurWrapperStyled, ContactUsButtonStyled, ContentWrapperStyled, DescFormStyled, EmailFormStyled, LoadingWrapperStyled, NameFormStyled, SendButtonFormStyled, TitleFormStyled, TitleTextStyled, WrapperStyled } from './ContactForm.style'
 import axios from 'axios';
+import { BlurWrapperStyled, ContactUsButtonStyled, ContactUsWrapperStyled, ContentWrapperStyled, DescFormStyled, EmailFormStyled, LoadingWrapperStyled, NameFormStyled, SendButtonFormStyled, TitleFormStyled, TitleTextStyled, WrapperStyled } from './ContactForm.style'
+import CloseIcon from '@mui/icons-material/Close';
+import EmailIcon from '@mui/icons-material/Email';
 import { LoaderStyled } from '../LoadingPage/LoadingPage.style';
 import { Colors } from '@/utils/Colors';
 
@@ -63,7 +64,10 @@ export default function ContactForm() {
             </BlurWrapperStyled>
           </ContentWrapperStyled>
         ) : (
-            <ContactUsButtonStyled onClick={() => setOpened(true)}>contact us</ContactUsButtonStyled>
+          <ContactUsWrapperStyled onClick={() => setOpened(true)}>
+            <EmailIcon />
+            <ContactUsButtonStyled>napište nám</ContactUsButtonStyled>
+          </ContactUsWrapperStyled>
         )}
     </WrapperStyled>
   )

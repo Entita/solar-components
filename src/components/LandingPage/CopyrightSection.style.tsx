@@ -29,7 +29,8 @@ export const LeftTextStyled = styled.h4`
   writing-mode: vertical-lr;
   rotate: 180deg;
   color: ${Colors.main.white};
-  font-weight: 400;
+  font-weight: 600;
+  text-shadow: 0 0 3px ${Colors.main.black};
   margin: 0;
   user-select: none;
   text-align: end;
@@ -41,7 +42,7 @@ export const LeftTextStyled = styled.h4`
     height: 75%;
     top: -2px;
     left: -10px;
-    border: 1px solid ${Colors.main.white};
+    border: 2px solid ${Colors.main.lightGray};
   }
 
   &::after {
@@ -50,7 +51,7 @@ export const LeftTextStyled = styled.h4`
     width: 4px;
     height: 50%;
     top: -2px;
-    left: -9px;
+    left: -8px;
     background-color: ${Colors.main.white};
   }
 `;
@@ -70,7 +71,8 @@ export const RightTextStyled = styled.h4`
   writing-mode: vertical-rl;
   color: ${Colors.main.orangish};
   letter-spacing: 4px;
-  font-weight: 400;
+  font-weight: 600;
+  text-shadow: 0 0 3px ${Colors.main.black};
   margin: 0;
   user-select: none;
 
@@ -81,7 +83,7 @@ export const RightTextStyled = styled.h4`
     height: 75%;
     bottom: -2px;
     left: -10px;
-    border: 1px solid ${Colors.main.orangish};
+    border: 2px solid ${Colors.main.lightGray};
   }
 
   &::after {
@@ -90,7 +92,7 @@ export const RightTextStyled = styled.h4`
     width: 4px;
     height: 50%;
     bottom: -2px;
-    left: -9px;
+    left: -8px;
     background-color: ${Colors.main.orangish};
   }
 `;
@@ -99,26 +101,30 @@ export const ContactUsTitleStyled = styled.h5`
   font-size: 64px;
   letter-spacing: 2px;
   color: ${Colors.main.white};
-  text-shadow: -1px -1px 0 ${Colors.main.yellowish}, 1px -1px 0 ${Colors.main.yellowish}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
+  text-shadow: -1px -1px 0 ${Colors.main.lightGray}, 1px -1px 0 ${Colors.main.lightGray}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
   margin: 0;
 `;
 
 export const ContactCINStyled = styled.span`
   font-weight: 200;
   padding-bottom: .4rem;
+  color: ${Colors.main.darkGray};
 `;
 
 export const ContactUsMailStyled = styled.span`
+  color: ${Colors.main.darkGray};
   font-weight: 600;
   text-decoration: underline;
   letter-spacing: 1px;
 `;
 
 export const ContactUsNumberStyled = styled.span`
+  color: ${Colors.main.darkGray};
   font-weight: 600;
 `;
 
 export const CopyrightStyled = styled.span`
+  color: ${Colors.main.darkGray};
   padding-top: .6rem;
   font-size: 14px;
   font-weight: 200;
@@ -151,7 +157,7 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
 
     ${RightTextStyled} {
       &::before {
-        border: 1px solid ${Colors.main.white};
+        border: 2px solid ${Colors.main.lightGray};
       }
 
       &::after {
@@ -163,7 +169,7 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
       color: ${Colors.main.orangish};
 
       &::before {
-        border: 1px solid ${Colors.main.orangish};
+        border: 2px solid ${Colors.main.lightGray};
       }
 
       &::after {

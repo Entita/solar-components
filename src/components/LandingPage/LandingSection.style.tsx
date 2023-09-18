@@ -35,14 +35,13 @@ export const LandingButtonWrapperStyled = styled.div`
 `;
 
 export const LandingButtonStyled = styled.button`
-  font-weight: 600;
   font-size: 14px;
   background-color: ${Colors.main.white};
   color: ${Colors.main.orangish};
   border: 2px solid ${Colors.main.orangish};
   padding: .3rem 1.8rem;
   border-radius: 12px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all .2s ease;
   user-select: none;
   white-space: nowrap;

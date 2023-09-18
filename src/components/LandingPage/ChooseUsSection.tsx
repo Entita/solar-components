@@ -1,8 +1,6 @@
 import React from 'react'
 import { ChooseUsBottomBackgroundStyled, ChooseUsOrangeTextStyled, ChooseUsSectionTextStyled, ChooseUsSectionTitleStyled, ChooseUsSectionWrapperStyled, ChooseUsSectionsWrapperStyled, ChooseUsTopBackgroundStyled, IconNumberStyled, IconWrapperStyled, IconsWrapperStyled, WrapperStyled } from './ChooseUsSection.style'
-import FistIcon from '@/SVGs/FistIcon'
-import ParachuteIcon from '@/SVGs/ParachuteIcon'
-import LightningIcon from '@/SVGs/LightningIcon'
+import ChooseUsIcon from './ChooseUsIcon'
 
 export default function ChooseUsSection() {
   const iconWidth = 150
@@ -13,15 +11,15 @@ export default function ChooseUsSection() {
       <IconsWrapperStyled>
         <IconWrapperStyled>
           <IconNumberStyled>01</IconNumberStyled>
-          <ParachuteIcon width={iconWidth} height={iconWidth} />
+          <ChooseUsIcon type='parachute' />
         </IconWrapperStyled>
         <IconWrapperStyled>
           <IconNumberStyled>02</IconNumberStyled>
-          <FistIcon width={iconWidth} height={iconWidth} />
+          <ChooseUsIcon type='fist' />
         </IconWrapperStyled>
         <IconWrapperStyled>
           <IconNumberStyled>03</IconNumberStyled>
-          <LightningIcon width={iconWidth} height={iconWidth} />
+          <ChooseUsIcon type='lightning' />
         </IconWrapperStyled>
       </IconsWrapperStyled>
 

@@ -39,6 +39,11 @@ export const products = [
     name: 'M10 matka',
     desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus illum enim eum molestiae. Doloremque, ipsum inventore repudiandae nihil dolorum officia aliquam! In quidem quae iste delectus laboriosam provident esse temporibus.',
   },
+  {
+    id: 'nut',
+    name: 'Matka',
+    desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus illum enim eum molestiae. Doloremque, ipsum inventore repudiandae nihil dolorum officia aliquam! In quidem quae iste delectus laboriosam provident esse temporibus.',
+  },
 ]
 
 export default function ProductsPage() {

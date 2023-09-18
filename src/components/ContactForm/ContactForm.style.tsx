@@ -1,21 +1,42 @@
 import { Colors } from "@/utils/Colors";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
   position: fixed;
   bottom: 1rem;
-  right: 2rem;
-  border: 2px solid ${Colors.main.black};
+  right: 1rem;
   border-radius: 4px;
-  background-color: white;
 `;
 
-export const ContactUsButtonStyled = styled.button`
-  border: unset;
-  display: block;
+export const ContactUsWrapperStyled = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: ${Colors.main.orange};
+  border-radius: 24px;
+  cursor: pointer;
+
+  & > svg {
+    box-shadow:
+    inset 0 0 0 0px ${Colors.main.white},
+    inset 0 0 0 4px ${Colors.main.lightOrange};
+    border-radius: 50%;
+    padding: 12px;
+    color: ${Colors.main.orange};
+    background-color: ${Colors.main.white};
+  }
+`;
+
+export const ContactUsButtonStyled = styled.span`
+  text-transform: uppercase;
+  color: ${Colors.main.white};
+  padding: 0 12px 0 6px;
 `;
 
 export const ContentWrapperStyled = styled.div`
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid ${Colors.main.black};
+
   svg {
     position: absolute;
     top: 4px;

@@ -50,6 +50,7 @@ export const ChooseUsSectionTextStyled = styled.p`
 
 export const ChooseUsOrangeTextStyled = styled.span`
   color: ${Colors.main.orangish};
+  font-weight: 600;
 `;
 
 export const IconsWrapperStyled = styled.div`
@@ -66,15 +67,15 @@ export const IconsWrapperStyled = styled.div`
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 1px;
-    background-color: ${Colors.main.orangish};
+    width: 2px;
+    background-color: ${Colors.main.orange};
     z-index: -1;
   }
 `;
 
 export const IconWrapperStyled = styled.div`
   position: relative;
-  border: 1px solid ${Colors.main.orangish};
+  border: 2px solid ${Colors.main.orange};
   border-radius: 50%;
   background-color: ${Colors.main.white};
   width: 130px;
@@ -94,7 +95,7 @@ export const IconNumberStyled = styled.span`
   left: -50px;
   color: ${Colors.main.orangish};
   
-  font-weight: 200;
+  font-weight: 500;
   font-size: 21px;
   user-select: none;
 `;

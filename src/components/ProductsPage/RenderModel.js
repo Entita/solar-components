@@ -49,6 +49,9 @@ const adjustments = {
     scale: 0.05,
     position: [0, -0.1, 0.25],
   },
+  'nut': {
+    scale: 0.075,
+  },
   'omega': {
     scale: 0.04,
     position: [-0.5, -0.8, -0.25],

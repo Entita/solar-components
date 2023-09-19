@@ -72,7 +72,7 @@ export default function Product(props: any) {
               ) : (
                 <ZoomInIcon />
               )}
-              <Image onLoadingComplete={() => setLoadingImage(false)} unoptimized={false} priority onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.png`} alt='technical drawing' width={size.width} height={size.height - 1} />
+              <Image onLoadingComplete={() => setLoadingImage(false)} unoptimized={false} priority onClick={({ target }: any) => props.setZoomedElement(target)} src={`/models/${props.model}.svg`} alt='technical drawing' width={size.width} height={size.height - 1} />
             </>
           ) : (
             <>Chyba</>

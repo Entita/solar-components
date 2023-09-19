@@ -16,7 +16,7 @@ const ZoomWrapperBackgroundStyled = styled.div`
 `;
 
 const ZoomWrapperStyled = styled.div`
-
+  background-color: white;
 `;
 
 export default function Zoom({ setZoomedElement, children } : { setZoomedElement: Function, children: any}) {

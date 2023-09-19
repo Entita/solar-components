@@ -6,6 +6,7 @@ export const WrapperStyled = styled.div`
   bottom: 1rem;
   right: 1rem;
   border-radius: 4px;
+  z-index: 999;
 `;
 
 export const ContactUsWrapperStyled = styled.div`
@@ -33,16 +34,39 @@ export const ContactUsButtonStyled = styled.span`
 `;
 
 export const ContentWrapperStyled = styled.div`
-  background-color: white;
   border-radius: 6px;
-  border: 1px solid ${Colors.main.black};
+  border: 2px solid ${`${Colors.main.white}80`};
+  backdrop-filter: blur(3px) contrast(0.85);
+  background-color: ${`${Colors.main.orangish}50`};
 
   svg {
     position: absolute;
+    color: ${Colors.main.white};
     top: 4px;
     right: 6px;
     cursor: pointer;
     z-index: 1;
+  }
+
+  *::-webkit-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *:-moz-placeholder {
+      color: ${Colors.main.orange};
+      opacity: 1;
+  }
+  *::-moz-placeholder {
+      color: ${Colors.main.orange};
+      opacity: 1;
+  }
+  *:-ms-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *::-ms-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *::placeholder {
+      color: ${Colors.main.orange};
   }
 `;
 
@@ -69,16 +93,24 @@ export const LoadingWrapperStyled = styled.div`
 `;
 
 export const TitleTextStyled = styled.div`
-  
+  color: ${Colors.main.white};
+  letter-spacing: 2px;
 `;
 
 const InputStyled = styled.input<{ error: Boolean }>`
-  border-width: 1px;
-  border-color: ${({ error }) => error ? 'red' : 'black'};
-`;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background-color: ${Colors.main.white};
+  border-color: ${({ error }) => error ? '${Colors.main.white}' : Colors.main.orangish};
+  color: ${Colors.main.orange};
+  transition: .2s ease;
+  outline: unset;
 
-export const TitleFormStyled = styled(InputStyled)`
-  
+  &:focus {
+    border-color: ${({ error }) => error ? 'red' : Colors.main.white};
+  }
 `;
 
 export const NameFormStyled = styled(InputStyled)`
@@ -90,10 +122,38 @@ export const EmailFormStyled = styled(InputStyled)`
 `;
 
 export const DescFormStyled = styled.textarea<{ error: Boolean }>`
-  border-color: ${({ error }) => error ? 'red' : 'black'};
   resize: none;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background-color: ${Colors.main.white};
+  border-color: ${({ error }) => error ? '${Colors.main.white}' : Colors.main.orangish};
+  color: ${Colors.main.orange};
+  min-height: 80px;
+  min-width: 200px;
+  transition: .2s ease;
+  outline: unset;
+
+  &:focus {
+    border-color: ${({ error }) => error ? 'red' : Colors.main.white};
+  }
 `;
 
 export const SendButtonFormStyled = styled.button`
-  
+  border-radius: 6px;
+  border: 2px solid ${Colors.main.white};
+  padding: 4px 0;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+  font-weight: bold;
+  text-shadow: 0 0 3px ${Colors.main.lightGray};
+  color: ${Colors.main.orange};
+  background-color: ${Colors.main.white};
+  transition: 0.2s ease;
+
+  &:hover {
+    color: ${Colors.main.white};
+    background-color: transparent;
+  }
 `;

@@ -12,7 +12,7 @@ export default function Header() {
   const qaRef = React.useRef<HTMLButtonElement | null>(null)
   const [hoveredMenuDetails, setHoveredMenuDetails] = React.useState<{ width: number; anotherWidth: number; left: number; anotherLeft: number }>({ width: 0, anotherWidth: 0, left: 0, anotherLeft: 0 })
   const currRoute = usePathname().split('/')[1]
-  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(window.innerWidth > 1320)
+  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1320 : false)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const [menuClicked, setMenuClicked] = React.useState<Boolean>(false)
   const menuRoutes = [
@@ -115,16 +115,28 @@ export default function Header() {
   }, [activeMenu, showSimilarLogo])
 
   React.useEffect(() => {
+    unsetLoadingCursor()
     setMenuClicked(false)
   }, [currRoute])
 
-  if (window.location.hash === '#faq' && firstTimeOnRoute) {
+  if (typeof window !== 'undefined' && window.location.hash === '#faq' && firstTimeOnRoute) {
     setFirstTimeOnRoute(false)
     if (currRoute === '')
       setTimeout(() => {
         window.document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
       }, 50)
     else window.document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const setLoadingCursor = () => {
+    const cursorStyle = document.createElement('style')
+    cursorStyle.innerHTML = '*{cursor: wait!important;}'
+    cursorStyle.id = 'cursor-style'
+    document.head.appendChild(cursorStyle)
+  }
+
+  const unsetLoadingCursor = () => {
+    document.getElementById('cursor-style')?.remove()
   }
   
   return (
@@ -137,6 +149,9 @@ export default function Header() {
           return (
             <NavbarListStyled key={index} active={menuRouteObj.route === currRoute} {...conditionalRef}>
               <Link onClick={({ target }: any) => {
+                const clicked = menuRoutes.find(route => route.name === target.innerHTML)?.route
+                if (currRoute === clicked) return
+                setLoadingCursor()
                 setMenuClicked(true)
                 setHoveredMenuDetails({
                   left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),
@@ -149,7 +164,11 @@ export default function Header() {
           )}
         )}
         <QAButtonStyled ref={qaRef}>
-          <Link href='/#faq' onClick={() => setFirstTimeOnRoute(true)}>FAQ</Link>
+          <Link href='/#faq' onClick={() => {
+              if (currRoute === '') return
+              setLoadingCursor()
+              setFirstTimeOnRoute(true)
+            }}>FAQ</Link>
         </QAButtonStyled>
       </NavbarWrapperStyled>
       {showSimilarLogo && <SimilarLogoDesign height={40} />}

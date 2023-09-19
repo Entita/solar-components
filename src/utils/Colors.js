@@ -10,5 +10,7 @@ export const Colors = {
     orangish: '#F7C547',
     lightOrange: '#FDE17C',
     yellowish: '#F6D047',
+    blackish: '#2E2E2E',
+    whitish: '#fdd495',
   }
 }

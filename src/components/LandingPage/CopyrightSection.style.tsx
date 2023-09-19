@@ -30,7 +30,7 @@ export const LeftTextStyled = styled.h4`
   rotate: 180deg;
   color: ${Colors.main.white};
   font-weight: 600;
-  text-shadow: 0 0 3px ${Colors.main.black};
+  text-shadow: 0 0 3px ${Colors.main.blackish};
   margin: 0;
   user-select: none;
   text-align: end;
@@ -42,7 +42,7 @@ export const LeftTextStyled = styled.h4`
     height: 75%;
     top: -2px;
     left: -10px;
-    border: 2px solid ${Colors.main.lightGray};
+    border: 2px solid ${Colors.main.whitish};
   }
 
   &::after {
@@ -72,7 +72,6 @@ export const RightTextStyled = styled.h4`
   color: ${Colors.main.orangish};
   letter-spacing: 4px;
   font-weight: 600;
-  text-shadow: 0 0 3px ${Colors.main.black};
   margin: 0;
   user-select: none;
 
@@ -83,7 +82,7 @@ export const RightTextStyled = styled.h4`
     height: 75%;
     bottom: -2px;
     left: -10px;
-    border: 2px solid ${Colors.main.lightGray};
+    border: 2px solid ${Colors.main.orangish};
   }
 
   &::after {
@@ -101,30 +100,30 @@ export const ContactUsTitleStyled = styled.h5`
   font-size: 64px;
   letter-spacing: 2px;
   color: ${Colors.main.white};
-  text-shadow: -1px -1px 0 ${Colors.main.lightGray}, 1px -1px 0 ${Colors.main.lightGray}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
+  text-shadow: -1px -1px 0 ${Colors.main.blackish}, 1px -1px 0 ${Colors.main.blackish}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
   margin: 0;
 `;
 
 export const ContactCINStyled = styled.span`
   font-weight: 200;
   padding-bottom: .4rem;
-  color: ${Colors.main.darkGray};
+  color: ${Colors.main.blackish};
 `;
 
 export const ContactUsMailStyled = styled.span`
-  color: ${Colors.main.darkGray};
+  color: ${Colors.main.blackish};
   font-weight: 600;
   text-decoration: underline;
   letter-spacing: 1px;
 `;
 
 export const ContactUsNumberStyled = styled.span`
-  color: ${Colors.main.darkGray};
+  color: ${Colors.main.blackish};
   font-weight: 600;
 `;
 
 export const CopyrightStyled = styled.span`
-  color: ${Colors.main.darkGray};
+  color: ${Colors.main.blackish};
   padding-top: .6rem;
   font-size: 14px;
   font-weight: 200;
@@ -156,8 +155,10 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
     }
 
     ${RightTextStyled} {
+      text-shadow: 0 0 2px ${Colors.main.lightGray};
+
       &::before {
-        border: 2px solid ${Colors.main.lightGray};
+        border: 2px solid ${Colors.main.white};
       }
 
       &::after {
@@ -166,10 +167,11 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
     }
 
     ${LeftTextStyled} {
+      text-shadow: 0 0 2px ${Colors.main.lightGray};
       color: ${Colors.main.orangish};
 
       &::before {
-        border: 2px solid ${Colors.main.lightGray};
+        border: 2px solid ${Colors.main.orangish};
       }
 
       &::after {

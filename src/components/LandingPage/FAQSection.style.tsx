@@ -65,7 +65,7 @@ export const FAQDrowpdownContainerWrapperStyled = styled.div`
 export const FAQDescStyled = styled.span`
   font-size: 21px;
   font-weight: 600;
-  color: ${Colors.main.lightGray};
+  color: ${Colors.main.orange};
 `;
 
 export const FAQDrowpdownsWrapperStyled = styled.div`

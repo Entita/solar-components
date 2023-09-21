@@ -72,6 +72,10 @@ export const LandingPlaceholderStyled = styled.span`
 `;
 
 export const LandingBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: 0;
   left: calc(-10vw - 2px);

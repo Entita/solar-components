@@ -3,8 +3,6 @@ import { ChooseUsBottomBackgroundStyled, ChooseUsOrangeTextStyled, ChooseUsSecti
 import ChooseUsIcon from './ChooseUsIcon'
 
 export default function ChooseUsSection() {
-  const iconWidth = 150
-
   return (
     <WrapperStyled id='choose-us'>
       <ChooseUsTopBackgroundStyled />

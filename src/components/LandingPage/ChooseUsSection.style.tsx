@@ -10,6 +10,10 @@ export const WrapperStyled = styled.div`
 `;
 
 export const ChooseUsTopBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   top: calc(-25vh - 2px);
   left: calc(-10vw - 2px);
@@ -101,6 +105,10 @@ export const IconNumberStyled = styled.span`
 `;
 
 export const ChooseUsBottomBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: 0;
   left: calc(-10vw - 2px);

@@ -118,6 +118,8 @@ export const PersonTextStyled = styled.span`
 export const PersonNameStyled = styled.h4`
   margin: 0;
   color: ${Colors.main.orangish};
+  background-color: ${`${Colors.main.white}80`};
+  border-radius: 8px;
   font-weight: 600;
   font-size: 24px;
   margin-top: 1rem;
@@ -157,6 +159,7 @@ export const PersonRightPhoneStyled = styled(PersonPhoneStyled)`
 
 export const MapWrapperStyled = styled.div`
   display: flex;
+  flex-wrap: wrap;
   column-gap: 4rem;
 `
 
@@ -177,8 +180,14 @@ export const MapDescWrapperStyled = styled.div`
 
 export const MapTextStyled = styled(PersonTextStyled)``
 
-export const MapCityStyled = styled(RightPersonNameStyled)`
+export const MapCityStyled = styled.h4`
+  color: ${Colors.main.white};
+  background-color: ${`${Colors.main.yellowish}80`};
   margin: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 1rem;
 `
 
 export const MapAddressStyled = styled.span`

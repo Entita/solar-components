@@ -9,6 +9,10 @@ export const WrapperStyled = styled.div`
 `;
 
 export const FAQBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: -2.5vw;
+  }
+
   position: absolute;
   bottom: -2px;
   left: -10vw;
@@ -26,6 +30,10 @@ export const FAQWrapperStyled = styled.div`
 `;
 
 export const FAQTitleStyled = styled.h3`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   margin: 0;
   font-size: 64px;
   font-weight: 200;
@@ -39,6 +47,10 @@ export const FAQTitleStyled = styled.h3`
 `;
 
 export const FAQSubtitleWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
 `;
 
@@ -59,6 +71,10 @@ export const FAQSubtitleStyled = styled.h5`
 `;
 
 export const FAQDrowpdownContainerWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding: 1rem 1rem;
+  }
+
   padding: 1rem 3rem;
 `;
 
@@ -80,12 +96,20 @@ export const FAQDrowpdownWrapperStyled = styled.div`
 `;
 
 export const FAQDrowpdownTopWrapperStyled = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${Colors.main.black};
-  padding: 2px 12px 2px 12px;
+  padding: 2px 24px 2px 12px;
   cursor: pointer;
+
+  & > svg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
 export const FAQDrowpdownTitleStyled = styled.h6`

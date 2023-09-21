@@ -2,6 +2,10 @@ import { Colors } from "@/utils/Colors";
 import styled, { css } from "styled-components";
 
 export const CopyrightBottomBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: -2px;
   left: calc(-10vw - 2px);
@@ -15,6 +19,10 @@ export const CopyrightBottomBackgroundStyled = styled.div`
 `;
 
 export const CopyrightBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: -2.5vw;
+  }
+
   position: absolute;
   bottom: -2px;
   left: -10vw;
@@ -25,6 +33,10 @@ export const CopyrightBackgroundStyled = styled.div`
 `;
 
 export const LeftTextStyled = styled.h4`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
   writing-mode: vertical-lr;
   rotate: 180deg;
@@ -58,6 +70,7 @@ export const LeftTextStyled = styled.h4`
 
 export const ContactUsWrapperStyled = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   gap: .2rem;
@@ -67,6 +80,10 @@ export const ContactUsWrapperStyled = styled.div`
 `;
 
 export const RightTextStyled = styled.h4`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
   writing-mode: vertical-rl;
   color: ${Colors.main.orangish};
@@ -102,6 +119,7 @@ export const ContactUsTitleStyled = styled.h5`
   color: ${Colors.main.white};
   text-shadow: -1px -1px 0 ${Colors.main.blackish}, 1px -1px 0 ${Colors.main.blackish}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
   margin: 0;
+  text-align: center;
 `;
 
 export const ContactCINStyled = styled.span`

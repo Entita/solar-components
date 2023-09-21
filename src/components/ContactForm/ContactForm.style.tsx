@@ -35,9 +35,9 @@ export const ContactUsButtonStyled = styled.span`
 
 export const ContentWrapperStyled = styled.div`
   border-radius: 6px;
-  border: 2px solid ${`${Colors.main.white}80`};
+  border: 4px solid ${Colors.main.lightOrange};
   backdrop-filter: blur(3px) contrast(0.85);
-  background-color: ${`${Colors.main.orangish}50`};
+  background-color: ${Colors.main.orange};
 
   svg {
     position: absolute;
@@ -142,18 +142,17 @@ export const DescFormStyled = styled.textarea<{ error: Boolean }>`
 
 export const SendButtonFormStyled = styled.button`
   border-radius: 6px;
-  border: 2px solid ${Colors.main.white};
+  border: 2px solid ${Colors.main.lightOrange};
   padding: 4px 0;
   letter-spacing: 3px;
   word-spacing: 3px;
   font-weight: bold;
-  text-shadow: 0 0 3px ${Colors.main.lightGray};
   color: ${Colors.main.orange};
   background-color: ${Colors.main.white};
   transition: 0.2s ease;
 
   &:hover {
-    color: ${Colors.main.white};
-    background-color: transparent;
+    color: ${Colors.main.lightOrange};
+    border-color: ${Colors.main.white};
   }
 `;

@@ -9,6 +9,7 @@ export const WrapperStyled = styled.div`
 `;
 
 export const CanvasStyled = styled.div`
+  margin: auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +33,7 @@ export const CanvasStyled = styled.div`
 export const MenuWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
+  width: 650px;
 `;
 
 export const MenuContainerStyled = styled.div`
@@ -77,7 +79,6 @@ export const ContentWrapperStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 500px;
   border-left: 1px solid ${Colors.main.orange};
   border-right: 1px solid ${Colors.main.orange};
   border-top: 1px solid ${Colors.main.orange};
@@ -109,14 +110,15 @@ export const ContentWrapperStyled = styled.div`
 `;
 
 export const ProductTitleStyled = styled.h3`
-  font-size: 48px;
+  font-size: 46px;
   margin: 0;
+  margin-top: -12px;
   color: ${Colors.main.black};
   font-weight: 500;
   text-transform: uppercase;
 `;
 
-export const ProductDescStyled = styled.p`
+export const ProductDescStyled = styled.div`
   margin: 0;
   text-align: justify;
   font-weight: 200;

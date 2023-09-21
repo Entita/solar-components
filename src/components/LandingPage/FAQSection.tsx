@@ -32,23 +32,27 @@ export default function FAQSection() {
           <FAQDrowpdownsWrapperStyled>
             <FAQDropdown
               question='Jaké díly nabízíte pro solární panely ?'
-              answer='Odpověď: Nabízíme širokou škálu dílů pro solární panely, včetně solárních článků, inverzních měničů, nosných konstrukcí, kabelů, konektorů, diod, pojistek a dalších součástí.'
-            />
-            <FAQDropdown
-              question='Můžu si díly pro solární panely instalovat sám/sama ?'
-              answer='Odpověď: Nabízíme širokou škálu dílů pro solární panely, včetně solárních článků, inverzních měničů, nosných konstrukcí, kabelů, konektorů, diod, pojistek a dalších součástí.'
+              answer='Odpověď: Nerezové a hliníkové komponenty pro uchycení solárních elektráren.'
             />
             <FAQDropdown
               question='Jaké jsou záruční podmínky na vaše díly ?'
-              answer='Odpověď: Nabízíme širokou škálu dílů pro solární panely, včetně solárních článků, inverzních měničů, nosných konstrukcí, kabelů, konektorů, diod, pojistek a dalších součástí.'
+              answer='Odpověď: Všechny naše produkty splňují normy a dáváme na ně plnou záruku.'
             />
             <FAQDropdown
               question='Jaká je běžná doba dodání dílů ?'
-              answer='Odpověď: Nabízíme širokou škálu dílů pro solární panely, včetně solárních článků, inverzních měničů, nosných konstrukcí, kabelů, konektorů, diod, pojistek a dalších součástí.'
+              answer='Odpověď: Objednávky vyřizujeme, co nejdříve s dodáním maximálně do 5 pracovních dnů.'
             />
             <FAQDropdown
-              question='Můžete mi poskytnout poradenství při výběru správného náhradního dílu ?'
-              answer='Odpověď: Nabízíme širokou škálu dílů pro solární panely, včetně solárních článků, inverzních měničů, nosných konstrukcí, kabelů, konektorů, diod, pojistek a dalších součástí.'
+              question='Můžete mi poskytnout poradenství při výběru správných dílů?'
+              answer='Odpověď: Ano, stačí se nám ozvat na email: info@solar-components.cz'
+            />
+            <FAQDropdown
+              question='Mohu si u Vás objednat i vzorky před první objednávkou?'
+              answer='Odpověď: Ano objednat vzorky je určitě možné.'
+            />
+            <FAQDropdown
+              question='Kdo uhradí dopravu?'
+              answer='Odpověď: U větších objednávek je doprava vždy zdarma. U menších si dopravu hradí zákazník podle ceníku našich partnerů PPL.'
             />
           </FAQDrowpdownsWrapperStyled>
         </FAQDrowpdownContainerWrapperStyled>

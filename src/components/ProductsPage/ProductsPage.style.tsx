@@ -11,6 +11,8 @@ export const WrapperStyled = styled.div`
 export const ProductLoadingWrapperStyled = styled.div`
   display: flex;
   justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap-reverse;
 `;
 
 export const CanvasLoadingStyled = styled.div`
@@ -25,6 +27,7 @@ export const CanvasLoadingStyled = styled.div`
 export const ContentLoadingStyled = styled.div`
   display: flex;
   flex-direction: column;
+  width: 650px;
   gap: 4px;
 `;
 
@@ -93,7 +96,6 @@ export const ContentWrapperLoadingStyled = styled.div`
   flex-direction: column;
   gap: 4px;
   height: 100%;
-  width: 500px;
 `;
 
 export const DownloadLoadingStyled = styled.div`

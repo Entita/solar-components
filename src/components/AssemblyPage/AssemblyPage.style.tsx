@@ -26,10 +26,3 @@ export const AssemblyTitleStyled = styled.h2`
   font-weight: 400;
   margin: 0;
 `;
-
-export const AssemblyDescStyled = styled.p`
-  color: ${Colors.main.black};
-  font-size: 16px;
-  font-weight: 200;
-  margin: 0;
-`;

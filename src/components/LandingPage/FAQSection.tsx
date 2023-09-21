@@ -32,7 +32,7 @@ export default function FAQSection() {
           <FAQDrowpdownsWrapperStyled>
             <FAQDropdown
               question='Jaké díly nabízíte pro solární elektrárny ?'
-              answer='Odpověď: Nerezové a hliníkové komponenty pro uchycení solárních elektráren.'
+              answer='Odpověď: Nerezové a hliníkové komponenty pro uchycení panelů.'
             />
             <FAQDropdown
               question='Jaké jsou záruční podmínky na vaše díly ?'

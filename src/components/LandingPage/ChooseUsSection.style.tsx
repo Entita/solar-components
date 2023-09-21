@@ -2,6 +2,10 @@ import { Colors } from "@/utils/Colors";
 import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding-top: 0;
+  }
+  
   position: relative;
   display: flex;
   column-gap: 5vw;

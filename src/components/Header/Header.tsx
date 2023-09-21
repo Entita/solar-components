@@ -15,6 +15,7 @@ export default function Header() {
   const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1320 : false)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const [menuClicked, setMenuClicked] = React.useState<Boolean>(false)
+  const [isBig, setIsBig] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 650 : false)
   const menuRoutes = [
     {
       route: '',
@@ -35,7 +36,7 @@ export default function Header() {
   ]
 
   const onHover = (element: any) => {
-    if (menuClicked || element.target === menuRef.current || element.target.parentNode === qaRef.current || menuRef.current === null || activeMenu.current === null) return
+    if (!isBig || menuClicked || element.target === menuRef.current || element.target.parentNode === qaRef.current || menuRef.current === null || activeMenu.current === null) return
     if (element.target === qaRef.current) {
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
@@ -64,7 +65,7 @@ export default function Header() {
   }
 
   const onLeave = () => {
-    if (activeMenu.current === null || menuRef.current === null || menuClicked) return
+    if (activeMenu.current === null || menuRef.current === null || menuClicked || !isBig) return
 
     const activeMenuDetails = activeMenu.current.getBoundingClientRect()
     const menuDetails = menuRef.current.getBoundingClientRect()
@@ -79,7 +80,7 @@ export default function Header() {
   }
 
   React.useEffect(() => {
-    if (activeMenu.current === null || menuRef.current === null) return
+    if (activeMenu.current === null || menuRef.current === null || !isBig) return
 
     const activeMenuDetails = activeMenu.current.getBoundingClientRect()
     const menuDetails = menuRef.current.getBoundingClientRect()
@@ -93,10 +94,13 @@ export default function Header() {
     })
 
     const resizeWindow = () => {
+      unsetLoadingCursor()
+      const newBig = window.innerWidth > 650
       let newState = false
       if (window.innerWidth > 1320) newState = true
       if (showSimilarLogo !== newState) setShowSimilarLogo(newState)
-      if (activeMenu.current === null || menuRef.current === null) return
+      setIsBig(newBig)
+      if (!newBig || activeMenu.current === null || menuRef.current === null) return
 
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
@@ -112,7 +116,7 @@ export default function Header() {
 
     window.addEventListener('resize', resizeWindow);
     return () => window.removeEventListener('resize', resizeWindow)
-  }, [activeMenu, showSimilarLogo])
+  }, [activeMenu, showSimilarLogo, isBig])
 
   React.useEffect(() => {
     unsetLoadingCursor()
@@ -152,13 +156,15 @@ export default function Header() {
                 const clicked = menuRoutes.find(route => route.name === target.innerHTML)?.route
                 if (currRoute === clicked) return
                 setLoadingCursor()
-                setMenuClicked(true)
-                setHoveredMenuDetails({
-                  left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),
-                  width: target.parentNode.getBoundingClientRect().width,
-                  anotherLeft: hoveredMenuDetails.anotherLeft,
-                  anotherWidth: target.parentNode.getBoundingClientRect().width - 15,
-                })
+                if (isBig) {
+                  setMenuClicked(true)
+                  setHoveredMenuDetails({
+                    left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),
+                    width: target.parentNode.getBoundingClientRect().width,
+                    anotherLeft: hoveredMenuDetails.anotherLeft,
+                    anotherWidth: target.parentNode.getBoundingClientRect().width - 15,
+                  })
+                }
               }} href={`/${menuRouteObj.route}`}>{menuRouteObj.name}</Link>
             </NavbarListStyled>
           )}
@@ -167,7 +173,7 @@ export default function Header() {
           <Link href='/#faq' onClick={() => {
               if (currRoute === '') return
               setLoadingCursor()
-              setFirstTimeOnRoute(true)
+              if (isBig) setFirstTimeOnRoute(true)
             }}>FAQ</Link>
         </QAButtonStyled>
       </NavbarWrapperStyled>

@@ -24,6 +24,9 @@ export const TitleWrapperStyled = styled.div`
   width: 300px;
 
   &::before {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     top: 50%;
@@ -35,6 +38,9 @@ export const TitleWrapperStyled = styled.div`
   }
 
   &::after {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     top: 50%;
@@ -58,6 +64,11 @@ export const TitleStyled = styled.h2`
 export const PersonWrapperStyled = styled.div`
   display: flex;
   column-gap: 4rem;
+
+  @media (max-width: 650px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
@@ -103,6 +114,10 @@ export const PersonDescWrapperStyled = styled.div`
   justify-content: center;
   row-gap: 4px;
   margin-top: -2rem;
+
+  @media (max-width: 650px) {
+    margin-top: 0;
+  }
 `;
 
 export const PersonRightDescWrapperStyled = styled(PersonDescWrapperStyled)`
@@ -143,6 +158,9 @@ export const PersonPhoneStyled = styled.span`
   width: fit-content;
 
   &::after {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     bottom: -1rem;
@@ -164,6 +182,9 @@ export const MapWrapperStyled = styled.div`
 `
 
 export const MapStyled = styled.div`
+  @media (max-width: 650px) {
+    width: 100%;
+  }
   border: 2px solid #00000025;
   box-shadow: #00000025 -2px 2px 4px;
   border-radius: 8px;
@@ -200,6 +221,11 @@ export const MoreInfoStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin: 3rem 0;
+  @media (max-width: 650px) {
+    padding-top: 1rem;
+    border-top: 1px solid ${Colors.main.orangish};
+    margin: 2rem 0;
+  }
 `
 
 export const MoreInfoTextStyled = styled(PersonTextStyled)`

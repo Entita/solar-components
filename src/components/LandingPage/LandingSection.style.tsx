@@ -2,6 +2,11 @@ import { Colors } from "@/utils/Colors";
 import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding-top: 1rem;
+    text-align: center;
+  }
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,6 +34,10 @@ export const LandingDescStyled = styled.p`
 `;
 
 export const LandingButtonWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    justify-content: center;
+  }
+
   display: flex;
   align-items: center;
   gap: 1rem;

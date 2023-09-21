@@ -6,17 +6,32 @@ export const MenuWrapperStyled = styled.div`
   align-items: center;
   column-gap: max(6.5vw, 4rem);
   flex-wrap: wrap;
+
+  & > svg {
+    margin: 0 auto;
+  }
 `
 
 export const NavbarWrapperStyled = styled.ul<{ width: Number, left: Number, anotherWidth: Number, anotherLeft: Number }>`
   position: relative;
   display: flex;
   align-items: center;
-  gap: max(5vw, 3rem);
+  flex-wrap: wrap;
+  column-gap: max(5vw,3rem);
+  row-gap: 6px;
   margin: 0;
   padding: 0;
 
+  @media (max-width: 650px) {
+    justify-content: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid ${Colors.main.orangish};
+  }
+
   &::before {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     background-color: ${Colors.main.yellow};
@@ -28,6 +43,9 @@ export const NavbarWrapperStyled = styled.ul<{ width: Number, left: Number, anot
   }
 
   &::after {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     background-color: ${Colors.main.orangish};

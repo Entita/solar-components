@@ -122,6 +122,10 @@ export const FAQDrowpdownContentWrapperStyled = styled.div<{ open: Boolean }>`
   transition: all .4s ease;
   clip-path: ${({ open }) => open ? 'inset(0 0 0 0)' : 'inset(0 0 100% 0)'};
   max-height: ${({ open }) => open ? '63px' : '0'};
+
+  @media (max-width: 650px) {
+    max-height: ${({ open }) => open ? '140px' : '0'};
+  }
 `;
 
 export const FAQDrowpdownContentTextStyled = styled.p`

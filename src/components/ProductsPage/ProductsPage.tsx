@@ -7,17 +7,17 @@ export const products = [
   {
     id: 'hak',
     name: 'Nastavitelný vario hák 120mm',
-    desc: '<p>Střešní držák pro upevnění montážních lišt pro fotovoltaické panely na střechách pokrytých taškami. Zaručuje správnou stabilitu celé konstrukce.</p><span>K háku dodáváme <b>zdarma 3x vruty do dřeva</b> 6x50mm/50mm o materiálu A2.</span><br/><br /><span><b>Material:</b> Nerezová ocel h17 1.4016</span>',
+    desc: '<p>Střešní držák pro upevnění montážních profilů pro fotovoltaické panely na střechách pokrytých taškami. Zaručuje správnou stabilitu celé konstrukce.</p><span>K háku dodáváme <b>zdarma 3x vruty do dřeva</b> 6x50mm/50mm o materiálu A2.</span><br/><br /><span><b>Material:</b> Nerezová ocel h17 1.4016</span>',
   },
   {
     id: 'omega',
     name: 'Omega',
-    desc: '<p>Příchytka omega slouží k instalacím solárních článků a používá se k upevnění solárního panelu na hliníkový konstrukční profil viz. <a href=/montaz>[montáž]</a>. Používá se k montáži solárních panelů na ploché a šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
+    desc: '<p>Příchytka omega slouží k upevnění solárního panelu na hliníkový montážní profil viz. <a href=/montaz>[montáž]</a>. Používá se k montáži solárních panelů na ploché a šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
   },
   {
     id: 'z',
     name: 'Z-tko',
-    desc: '<p>Příchytka Z slouží k instalacím solárních článků a používá se k upevnění solárního panelu k hliníkovému konstrukčnímu profilu. Používá se k montáži solárních panelů na ploché i šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
+    desc: '<p>Příchytka Z slouží k upevnění solárního panelu k hliníkovému konstrukčnímu profilu. Používá se k montáži solárních panelů na ploché i šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
   },
   {
     id: 'M10_hex',

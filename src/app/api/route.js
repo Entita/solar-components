@@ -22,10 +22,11 @@ const sendMail = async(toEmail, subject, message, htmlMessage) => {
 }
 
 export async function POST(req) {
-    const { message, email, name } = await req.json()
+    const { message, email, name, wantPriceList } = await req.json()
     const formattedMessage = `
       <span>Jméno: ${name}</span> <br />
       <span>Email: ${email}</span> <br />
+      ${wantPriceList ? '<span>Chce zaslat ceník!</span> <br />' : ''}
       <hr />
       <p>${message}</p>
     `

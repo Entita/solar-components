@@ -103,7 +103,7 @@ const InputStyled = styled.input<{ error: Boolean }>`
   border-radius: 4px;
   padding: 4px 6px;
   background-color: ${Colors.main.white};
-  border-color: ${({ error }) => error ? '${Colors.main.white}' : Colors.main.orangish};
+  border-color: ${({ error }) => error ? 'red' : Colors.main.orangish};
   color: ${Colors.main.orange};
   transition: .2s ease;
   outline: unset;
@@ -128,7 +128,7 @@ export const DescFormStyled = styled.textarea<{ error: Boolean }>`
   border-radius: 4px;
   padding: 4px 6px;
   background-color: ${Colors.main.white};
-  border-color: ${({ error }) => error ? '${Colors.main.white}' : Colors.main.orangish};
+  border-color: ${({ error }) => error ? 'red' : Colors.main.orangish};
   color: ${Colors.main.orange};
   min-height: 80px;
   min-width: 200px;
@@ -138,6 +138,22 @@ export const DescFormStyled = styled.textarea<{ error: Boolean }>`
   &:focus {
     border-color: ${({ error }) => error ? 'red' : Colors.main.white};
   }
+`;
+
+export const WantPriceListWrapperStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const WantPriceListStyled = styled.input`
+  
+`;
+
+export const WantPriceListLabelStyled = styled.label`
+  padding-left: 2px;
+  color: ${Colors.main.white};
+  font-size: 13px;
 `;
 
 export const SendButtonFormStyled = styled.button`

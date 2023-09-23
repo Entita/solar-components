@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import { BlurWrapperStyled, ContactUsButtonStyled, ContactUsWrapperStyled, ContentWrapperStyled, DescFormStyled, EmailFormStyled, LoadingWrapperStyled, NameFormStyled, SendButtonFormStyled, TitleTextStyled, WrapperStyled } from './ContactForm.style'
+import { BlurWrapperStyled, ContactUsButtonStyled, ContactUsWrapperStyled, ContentWrapperStyled, DescFormStyled, EmailFormStyled, LoadingWrapperStyled, NameFormStyled, SendButtonFormStyled, TitleTextStyled, WantPriceListLabelStyled, WantPriceListStyled, WantPriceListWrapperStyled, WrapperStyled } from './ContactForm.style'
 import CloseIcon from '@mui/icons-material/Close';
 import EmailIcon from '@mui/icons-material/Email';
 import { LoaderStyled } from '../LoadingPage/LoadingPage.style';
@@ -17,13 +17,14 @@ export default function ContactForm() {
   const nameRef = React.useRef<HTMLInputElement | null>(null)
   const emailRef = React.useRef<HTMLInputElement | null>(null)
   const messageRef = React.useRef<HTMLTextAreaElement | null>(null)
+  const wantPriceListRef = React.useRef<HTMLInputElement | null>(null)
 
   const nameValidity = (name: string) => name.length < 4
   const emailValidity = (email: string) => !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email)
   const messageValidity = (message: string) => message.length < 10
 
   const sendEmail = async () => {
-    if (!nameRef.current || !emailRef.current || !messageRef.current) return
+    if (!nameRef.current || !emailRef.current || !messageRef.current || !wantPriceListRef.current) return
     const isNameValid = nameValidity(nameRef.current.value)
     const isEmailValid = emailValidity(emailRef.current.value)
     const isMessageValid = messageValidity(messageRef.current.value)
@@ -35,6 +36,7 @@ export default function ContactForm() {
         message: messageRef.current.value,
         email: emailRef.current.value,
         name: nameRef.current.value,
+        wantPriceList: wantPriceListRef.current.checked,
     }).then(({ data }) => data.success ? alert(`Poptávka byla úspěšně odeslána.`) : alert(`Nastala chyba při odesílání poptávky!"`))
     .finally(() => setLoading(false))
   }
@@ -49,6 +51,10 @@ export default function ContactForm() {
               <NameFormStyled error={error.name} ref={nameRef} placeholder='Vaše jméno' />
               <EmailFormStyled error={error.email} ref={emailRef} placeholder='Váš email' />
               <DescFormStyled error={error.message} ref={messageRef} placeholder='Zpráva'  />
+              <WantPriceListWrapperStyled>
+                <WantPriceListLabelStyled htmlFor='price_list'>Chcete zaslat ceník ?</WantPriceListLabelStyled>
+                <WantPriceListStyled ref={wantPriceListRef} type='checkbox' id='price_list' />
+              </WantPriceListWrapperStyled>
               <SendButtonFormStyled onClick={() => sendEmail()}>Odeslat email</SendButtonFormStyled>
               {loading && (
                 <LoadingWrapperStyled>

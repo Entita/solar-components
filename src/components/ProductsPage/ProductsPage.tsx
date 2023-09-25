@@ -1,7 +1,8 @@
 import React from 'react'
-import { ProductsDescStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
+import { ProductsDescStyled, ProductsDownloadStyled, ProductsHeaderWrapperStyled, ProductsTitleStyled, WrapperStyled } from './ProductsPage.style'
 import LazyLoadWrapper from './LazyLoadWrapper'
 import Zoom from './Zoom';
+import { download } from './Product';
 
 export const products = [
   {
@@ -11,12 +12,12 @@ export const products = [
   },
   {
     id: 'omega',
-    name: 'Omega',
+    name: 'Příchytka “Omega”',
     desc: '<p>Příchytka omega slouží k upevnění solárního panelu na hliníkový montážní profil viz. <a href=/montaz>[montáž]</a>. Používá se k montáži solárních panelů na ploché a šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
   },
   {
     id: 'z',
-    name: 'Z-tko',
+    name: 'Příchytka “Z”',
     desc: '<p>Příchytka Z slouží k upevnění solárního panelu k hliníkovému konstrukčnímu profilu. Používá se k montáži solárních panelů na ploché i šikmé střechy.</p><span><b>Material:</b> Hliník 6060</span>',
   },
   {
@@ -56,6 +57,7 @@ export default function ProductsPage() {
         <ProductsHeaderWrapperStyled>
           <ProductsTitleStyled>Naše produkty</ProductsTitleStyled>
           <ProductsDescStyled>Naše produkty splňují všechny normy. Jsou vyrobeny z kvalitní nerezové oceli nebo hliníku, proto vydrží po mnoho let a neztrácí své vlastnosti. Ke každému z našich produktů máme materiálové certifikáty a na vyžádání je možné dodat spolu s objednávkou.</ProductsDescStyled>
+          <ProductsDownloadStyled type='submit' onClick={() => download(`/models/Produkty.pdf`)}>Stáhnout PDF všech produktů</ProductsDownloadStyled>
         </ProductsHeaderWrapperStyled>
         {products.map((product, index) =>
           <LazyLoadWrapper

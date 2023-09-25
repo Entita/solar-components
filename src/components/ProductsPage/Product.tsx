@@ -17,6 +17,15 @@ const ProductLoading = ({ model, canvasSize }: { model: string, canvasSize: { wi
   )
 }
 
+export const download = (url: any) => {
+  const a = document.createElement('a')
+  a.href = url
+  a.download = url.split('/').pop()
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
+
 export default function Product(props: any) {
   const [menu, setMenu] = React.useState<string>('desc')
   const [size, setSize] = React.useState<{ width: number; height: number }>({ width: 0, height: 0 })
@@ -24,16 +33,6 @@ export default function Product(props: any) {
   const [loadingImage, setLoadingImage] = React.useState<boolean>(true)
   const containerRef = React.useRef<HTMLDivElement | null>(null)
   const canvasRef = React.useRef<HTMLDivElement | null>(null)
-
-  const download = (url: any) => {
-    const a = document.createElement('a')
-    a.href = url
-    a.download = url.split('/').pop()
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-  }
-
 
   React.useEffect(() => {
     if (!containerRef.current) return
@@ -78,7 +77,7 @@ export default function Product(props: any) {
             <>Chyba</>
           )}
         </ContentWrapperStyled>
-        <ProductDownloadStyled type='submit' onClick={() => download(`avatar.png`)}>Stáhnout PDF</ProductDownloadStyled>
+        <ProductDownloadStyled type='submit' onClick={() => download(`/models/${props.name}.pdf`)}>Stáhnout PDF</ProductDownloadStyled>
       </MenuWrapperStyled>
     </WrapperStyled>
   )

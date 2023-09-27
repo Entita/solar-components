@@ -1,6 +1,7 @@
 import React from 'react'
 import { WrapperStyled, FAQBackgroundStyled, FAQWrapperStyled, FAQDescStyled, FAQDrowpdownContentTextStyled, FAQDrowpdownContentWrapperStyled, FAQDrowpdownTitleStyled, FAQDrowpdownWrapperStyled, FAQDrowpdownsWrapperStyled, FAQSubtitleStyled, FAQTitleStyled, FAQDrowpdownContainerWrapperStyled, FAQDrowpdownTopWrapperStyled, FAQSubtitleWrapperStyled } from './FAQSection.style'
 import BottomArrow from '@/SVGs/BottomArrow'
+const ebg13 = require('ebg13')
 
 function FAQDropdown({ question, answer }: { question: string, answer: string }) {
   const [opened, setOpened] = React.useState<Boolean>(false)
@@ -44,7 +45,7 @@ export default function FAQSection() {
             />
             <FAQDropdown
               question='Můžete mi poskytnout poradenství při výběru správných dílů?'
-              answer='Odpověď: Ano, stačí se nám ozvat na email: info@solar-components.cz'
+              answer={`Odpověď: Ano, stačí se nám ozvat na email: ${ebg13('vasb@fbyne-pbzcbaragf.pm')}`}
             />
             <FAQDropdown
               question='Mohu si u Vás objednat i vzorky před první objednávkou?'

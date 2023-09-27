@@ -1,9 +1,8 @@
 import './globals.css'
 import Preloader from '@/components/Preloader'
-
 export const metadata = {
   title: 'Solar components',
-  description: 'Business website for company called "Solar components".',
+  description: 'Nabízíme kvalitní úchytné díly pro solární panely na šikmé taškové střechy. Získejte nejlepší montážní systémy pro vaši solární energii.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

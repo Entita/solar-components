@@ -24,7 +24,7 @@ export default function ChooseUsSection() {
       <ChooseUsSectionsWrapperStyled>
         <ChooseUsSectionWrapperStyled>
           <ChooseUsSectionTitleStyled>solidní výběr< br/>dodavatelů</ChooseUsSectionTitleStyled>
-          <ChooseUsSectionTextStyled>Naše společnost nabízí kvalitní a certifikované komponenty, které jsou vhodné pro různé typy solárních panelů a systémů od <ChooseUsOrangeTextStyled>evropských dodavatlů</ChooseUsOrangeTextStyled>.</ChooseUsSectionTextStyled>
+          <ChooseUsSectionTextStyled>Naše společnost nabízí kvalitní a certifikované komponenty, které jsou vhodné pro různé typy solárních panelů a systémů od <ChooseUsOrangeTextStyled>evropských dodavatelů</ChooseUsOrangeTextStyled>.</ChooseUsSectionTextStyled>
         </ChooseUsSectionWrapperStyled>
         <ChooseUsSectionWrapperStyled>
           <ChooseUsSectionTitleStyled>kvalitní komponenty</ChooseUsSectionTitleStyled>

@@ -2,8 +2,8 @@ function Error({ statusCode }) {
   return (
     <p>
       {statusCode
-        ? `Objevil se error ${statusCode} na serveru`
-        : 'Objevil se error u klienta'}
+        ? `Objevil se error ${statusCode} na serveru.`
+        : 'Objevil se error u klienta.'}
     </p>
   )
 }

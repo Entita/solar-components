@@ -109,7 +109,7 @@ export const ContentWrapperStyled = styled.div`
   }
 `;
 
-export const ProductTitleStyled = styled.h3`
+export const ProductTitleStyled = styled.h1`
   font-size: 46px;
   margin: 0;
   margin-top: -12px;

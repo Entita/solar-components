@@ -111,7 +111,7 @@ export const ProductsHeaderWrapperStyled = styled.div`
   margin-top: 1rem;
 `;
 
-export const ProductsTitleStyled = styled.h2`
+export const ProductsTitleStyled = styled.h1`
   color: ${Colors.main.black};
   font-size: 48px;
   font-weight: 400;

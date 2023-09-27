@@ -43,7 +43,7 @@ export const ChooseUsSectionWrapperStyled = styled.div`
   gap: .4rem;
 `;
 
-export const ChooseUsSectionTitleStyled = styled.h5`
+export const ChooseUsSectionTitleStyled = styled.h1`
   margin: 0;
   font-weight: 700;
   font-size: 32px;

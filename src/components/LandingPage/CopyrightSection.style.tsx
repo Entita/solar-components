@@ -32,7 +32,7 @@ export const CopyrightBackgroundStyled = styled.div`
   z-index: -2;
 `;
 
-export const LeftTextStyled = styled.h4`
+export const LeftTextStyled = styled.h1`
   @media (max-width: 650px) {
     display: none;
   }
@@ -79,7 +79,7 @@ export const ContactUsWrapperStyled = styled.div`
   color: ${Colors.main.orangish};
 `;
 
-export const RightTextStyled = styled.h4`
+export const RightTextStyled = styled.h1`
   @media (max-width: 650px) {
     display: none;
   }
@@ -113,7 +113,7 @@ export const RightTextStyled = styled.h4`
   }
 `;
 
-export const ContactUsTitleStyled = styled.h5`
+export const ContactUsTitleStyled = styled.h1`
   font-size: 64px;
   letter-spacing: 2px;
   color: ${Colors.main.white};

@@ -16,7 +16,7 @@ export const WrapperStyled = styled.div`
   gap: .6rem;
 `;
 
-export const LandingTextStyled = styled.h5`
+export const LandingTextStyled = styled.h1`
   font-weight: 700;
   font-size: 48px;
   margin: 0;

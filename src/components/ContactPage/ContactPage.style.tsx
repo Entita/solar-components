@@ -52,7 +52,7 @@ export const TitleWrapperStyled = styled.div`
   }
 `;
 
-export const TitleStyled = styled.h2`
+export const TitleStyled = styled.h1`
   color: ${Colors.main.black};
   font-size: 64px;
   text-transform: uppercase;
@@ -130,7 +130,7 @@ export const PersonTextStyled = styled.span`
   text-transform: uppercase;
 `;
 
-export const PersonNameStyled = styled.h4`
+export const PersonNameStyled = styled.h1`
   margin: 0;
   color: ${Colors.main.orangish};
   background-color: ${`${Colors.main.white}80`};
@@ -201,7 +201,7 @@ export const MapDescWrapperStyled = styled.div`
 
 export const MapTextStyled = styled(PersonTextStyled)``
 
-export const MapCityStyled = styled.h4`
+export const MapCityStyled = styled.h1`
   color: ${Colors.main.white};
   background-color: ${`${Colors.main.yellowish}80`};
   margin: 0;
@@ -232,7 +232,7 @@ export const MoreInfoTextStyled = styled(PersonTextStyled)`
   
 `
 
-export const MoreInfoTitleStyled = styled.h3`
+export const MoreInfoTitleStyled = styled.h1`
   font-weight: 600;
   font-size: 32px;
   margin: .6rem 0;

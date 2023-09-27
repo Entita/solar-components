@@ -20,7 +20,7 @@ export const AssemblyHeaderWrapperStyled = styled.div`
   margin-top: 1rem;
 `;
 
-export const AssemblyTitleStyled = styled.h2`
+export const AssemblyTitleStyled = styled.h1`
   color: ${Colors.main.black};
   font-size: 48px;
   font-weight: 400;

@@ -29,7 +29,7 @@ export const FAQWrapperStyled = styled.div`
   border-radius: 6px;
 `;
 
-export const FAQTitleStyled = styled.h3`
+export const FAQTitleStyled = styled.h1`
   @media (max-width: 650px) {
     display: none;
   }
@@ -54,7 +54,7 @@ export const FAQSubtitleWrapperStyled = styled.div`
   position: relative;
 `;
 
-export const FAQSubtitleStyled = styled.h5`
+export const FAQSubtitleStyled = styled.h1`
   position: absolute;
   margin: 0;
   padding: 1rem 0;
@@ -112,7 +112,7 @@ export const FAQDrowpdownTopWrapperStyled = styled.div`
   }
 `;
 
-export const FAQDrowpdownTitleStyled = styled.h6`
+export const FAQDrowpdownTitleStyled = styled.h1`
   font-size: 18px;
   margin: 0;
 `;

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import FullLogo from '@/SVGs/FullLogo'
 import SimilarLogoDesign from '@/SVGs/SimilarLogoDesign'
 import Link from 'next/link'
+import ReactGA from 'react-ga4';
 
 export default function Header() {
   const activeMenu = React.useRef<HTMLLIElement | null>(null)
@@ -94,7 +95,6 @@ export default function Header() {
     })
 
     const resizeWindow = () => {
-      unsetLoadingCursor()
       const newBig = window.innerWidth > 650
       let newState = false
       if (window.innerWidth > 1320) newState = true
@@ -119,7 +119,6 @@ export default function Header() {
   }, [activeMenu, showSimilarLogo, isBig])
 
   React.useEffect(() => {
-    unsetLoadingCursor()
     setMenuClicked(false)
   }, [currRoute])
 
@@ -130,17 +129,6 @@ export default function Header() {
         window.document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
       }, 50)
     else window.document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const setLoadingCursor = () => {
-    const cursorStyle = document.createElement('style')
-    cursorStyle.innerHTML = '*{cursor: wait!important;}'
-    cursorStyle.id = 'cursor-style'
-    document.head.appendChild(cursorStyle)
-  }
-
-  const unsetLoadingCursor = () => {
-    document.getElementById('cursor-style')?.remove()
   }
   
   return (
@@ -155,7 +143,7 @@ export default function Header() {
               <Link onClick={({ target }: any) => {
                 const clicked = menuRoutes.find(route => route.name === target.innerHTML)?.route
                 if (currRoute === clicked) return
-                setLoadingCursor()
+                ReactGA.send({ hitType: 'pageview', page: `/${clicked}` })
                 if (isBig) {
                   setMenuClicked(true)
                   setHoveredMenuDetails({
@@ -171,8 +159,9 @@ export default function Header() {
         )}
         <QAButtonStyled ref={qaRef}>
           <Link href='/#faq' onClick={() => {
+              ReactGA.event({ action: 'faq', category: 'actions' })
               if (currRoute === '') return
-              setLoadingCursor()
+              ReactGA.send({ hitType: 'pageview', page: '/' })
               if (isBig) setFirstTimeOnRoute(true)
             }}>FAQ</Link>
         </QAButtonStyled>

@@ -8,17 +8,9 @@ import ReactGA from 'react-ga4';
 export default function Preloader({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = React.useState<boolean>(true)
 
-  ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY || '')
-  ReactGA.send({
-    hitType: 'pageview',
-    page: typeof window !== 'undefined' ? window.location.pathname : '',
-  })
-  console.log('sending to analytics: ', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY, {
-    hitType: 'pageview',
-    page: typeof window !== 'undefined' ? window.location.pathname : '',
-  })
-
   React.useEffect(() => {
+    ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY || '')
+    ReactGA.send({ hitType: 'pageview', page: typeof window !== 'undefined' ? window.location.pathname : '' })
     setLoading(false)
   }, [])
 

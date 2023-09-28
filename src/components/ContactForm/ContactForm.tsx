@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import EmailIcon from '@mui/icons-material/Email';
 import { LoaderStyled } from '../LoadingPage/LoadingPage.style';
 import { Colors } from '@/utils/Colors';
+import ReactGA from 'react-ga4'
 
 export default function ContactForm() {
   const [loading, setLoading] = React.useState<Boolean>(false)
@@ -64,7 +65,10 @@ export default function ContactForm() {
             </BlurWrapperStyled>
           </ContentWrapperStyled>
         ) : (
-          <ContactUsWrapperStyled onClick={() => setOpened(true)}>
+          <ContactUsWrapperStyled onClick={() => {
+            ReactGA.event({ action: 'contact-us', category: 'actions' })
+            setOpened(true)
+          }}>
             <EmailIcon />
             <ContactUsButtonStyled>napište nám</ContactUsButtonStyled>
           </ContactUsWrapperStyled>

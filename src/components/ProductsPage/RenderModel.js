@@ -1,11 +1,12 @@
 import React from 'react'
 import { Canvas } from "@react-three/fiber"
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei"
+import ReactGA from 'react-ga4'
 
 export default function RenderModel({ model }) {
   return (
     <>
-      <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }}>
+      <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }} onClick={() => ReactGA.event({ action: model, category: 'products' })}>
         <Environment preset='sunset' resolution={256} blur={1} />
         <Model model={model} /> 
         <OrbitControls autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />

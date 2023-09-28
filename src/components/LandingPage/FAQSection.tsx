@@ -1,6 +1,7 @@
 import React from 'react'
 import { WrapperStyled, FAQBackgroundStyled, FAQWrapperStyled, FAQDescStyled, FAQDrowpdownContentTextStyled, FAQDrowpdownContentWrapperStyled, FAQDrowpdownTitleStyled, FAQDrowpdownWrapperStyled, FAQDrowpdownsWrapperStyled, FAQSubtitleStyled, FAQTitleStyled, FAQDrowpdownContainerWrapperStyled, FAQDrowpdownTopWrapperStyled, FAQSubtitleWrapperStyled } from './FAQSection.style'
 import BottomArrow from '@/SVGs/BottomArrow'
+import ReactGA from 'react-ga4'
 const ebg13 = require('ebg13')
 
 function FAQDropdown({ question, answer }: { question: string, answer: string }) {
@@ -8,7 +9,10 @@ function FAQDropdown({ question, answer }: { question: string, answer: string })
 
   return (
     <FAQDrowpdownWrapperStyled>
-      <FAQDrowpdownTopWrapperStyled onClick={() => setOpened(prev => !prev)}>
+      <FAQDrowpdownTopWrapperStyled onClick={() => {
+        ReactGA.event({ action: question, category: 'questions' })
+        setOpened(prev => !prev)
+      }}>
         <FAQDrowpdownTitleStyled>{question}</FAQDrowpdownTitleStyled>
         <BottomArrow height={8} open={opened} />
       </FAQDrowpdownTopWrapperStyled>

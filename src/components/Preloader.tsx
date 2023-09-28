@@ -11,11 +11,11 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
   ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY || '')
   ReactGA.send({
     hitType: 'pageview',
-    page: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
   })
   console.log('sending to analytics: ', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY, {
     hitType: 'pageview',
-    page: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
   })
 
   React.useEffect(() => {

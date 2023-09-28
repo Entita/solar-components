@@ -13,6 +13,10 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
     hitType: 'pageview',
     page: window.location.pathname + window.location.search,
   })
+  console.log('sending to analytics: ', process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, {
+    hitType: 'pageview',
+    page: window.location.pathname + window.location.search,
+  })
 
   React.useEffect(() => {
     setLoading(false)

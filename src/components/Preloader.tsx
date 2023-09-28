@@ -9,7 +9,10 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = React.useState<boolean>(true)
 
   ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '')
-  ReactGA.send('pageview')
+  ReactGA.send({
+    hitType: 'pageview',
+    page: window.location.pathname + window.location.search,
+  })
 
   React.useEffect(() => {
     setLoading(false)

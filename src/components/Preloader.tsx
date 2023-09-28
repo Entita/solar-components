@@ -11,11 +11,11 @@ export default function Preloader({ children }: { children: React.ReactNode }) {
   ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '')
   ReactGA.send({
     hitType: 'pageview',
-    page: window.location.pathname + window.location.search,
+    page: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
   })
   console.log('sending to analytics: ', process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, {
     hitType: 'pageview',
-    page: window.location.pathname + window.location.search,
+    page: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
   })
 
   React.useEffect(() => {

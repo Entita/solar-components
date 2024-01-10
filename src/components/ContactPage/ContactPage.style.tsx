@@ -142,6 +142,7 @@ export const PersonNameStyled = styled.h1`
 
 export const RightPersonNameStyled = styled(PersonNameStyled)`
   color: ${Colors.main.white};
+  background-color: unset;
 `;
 
 export const PersonEmailStyled = styled.span`

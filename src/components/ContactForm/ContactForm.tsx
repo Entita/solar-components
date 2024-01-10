@@ -5,7 +5,7 @@ import axios from 'axios';
 import { LoaderStyled } from '../LoadingPage/LoadingPage.style';
 
 export default function ContactForm() {
-  const [loading, setLoading] = React.useState<Boolean>(true)
+  const [loading, setLoading] = React.useState<Boolean>(false)
   const [opened, setOpened] = React.useState<Boolean>(false)
   const nameRef = React.useRef<HTMLInputElement | null>(null)
   const emailRef = React.useRef<HTMLInputElement | null>(null)
@@ -22,7 +22,7 @@ export default function ContactForm() {
         email: emailRef.current.value,
         name: nameRef.current.value,
     }).then(({ data }) => data.success ? alert(`Poptávka byla úspěšně odeslána.`) : alert(`Nastala chyba při odesílání poptávky!"`))
-    setLoading(false)   
+    setLoading(false)
   }
 
   return (

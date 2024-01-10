@@ -81,12 +81,12 @@ export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
   }
 `;
 
-export const PersonImageStyled = styled.div`
+export const PersonImageStyled = styled.div<{ image: String }>`
   border-radius: 50%;
   width: 250px;
   aspect-ratio: 1/1;
   border: 12px solid ${Colors.main.yellow};
-  background-image: url('avatar.png');
+  background-image: ${({ image }) => `url(${image}.png)`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -194,7 +194,7 @@ export const MoreInfoStyled = styled.div`
 `
 
 export const MoreInfoTextStyled = styled(PersonTextStyled)`
-  
+
 `
 
 export const MoreInfoTitleStyled = styled.h3`
@@ -204,5 +204,5 @@ export const MoreInfoTitleStyled = styled.h3`
 `
 
 export const MoreInfoDescriptionStyled = styled.span`
-  
+
 `

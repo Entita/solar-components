@@ -11,7 +11,7 @@ export default function ContactPage() {
         </TitleWrapperStyled>
 
         <PersonWrapperStyled>
-          <PersonImageStyled />
+          <PersonImageStyled image="avatar" />
           <PersonDescWrapperStyled>
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
             <PersonNameStyled>Jakub Hampl</PersonNameStyled>
@@ -21,13 +21,13 @@ export default function ContactPage() {
         </PersonWrapperStyled>
 
         <PersonRightWrapperStyled>
-          {/* <PersonRightDescWrapperStyled>
+          <PersonRightDescWrapperStyled>
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
-            <RightPersonNameStyled>Miroslav Pelikán</RightPersonNameStyled>
-            <PersonEmailStyled>miroslav.pelikan@solar-components.cz</PersonEmailStyled>
-            <PersonRightPhoneStyled>(+420) 607 885 468</PersonRightPhoneStyled>
+            <RightPersonNameStyled>Šárka Veverková</RightPersonNameStyled>
+            <PersonEmailStyled>info@solar-components.cz</PersonEmailStyled>
+            <PersonRightPhoneStyled>(+420) 773 700 475</PersonRightPhoneStyled>
           </PersonRightDescWrapperStyled>
-          <RightPersonImageStyled /> */}
+          <RightPersonImageStyled image="avatar_female" />
         </PersonRightWrapperStyled>
 
         <MapWrapperStyled>

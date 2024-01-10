@@ -1,6 +1,7 @@
 import React from 'react'
 import { ContentWrapper, MapAddressStyled, MapCityStyled, MapDescWrapperStyled, MapStyled, MapTextStyled, MapWrapperStyled, MoreInfoDescriptionStyled, MoreInfoStyled, MoreInfoTextStyled, MoreInfoTitleStyled, PersonDescWrapperStyled, PersonEmailStyled, PersonImageStyled, PersonNameStyled, PersonPhoneStyled, PersonRightDescWrapperStyled, PersonRightPhoneStyled, PersonRightWrapperStyled, PersonTextStyled, PersonWrapperStyled, RightPersonImageStyled, RightPersonNameStyled, TitleStyled, TitleWrapperStyled, WrapperStyled } from './ContactPage.style'
 import Map from './Map'
+const ebg13 = require('ebg13')
 
 export default function ContactPage() {
   return (
@@ -15,7 +16,7 @@ export default function ContactPage() {
           <PersonDescWrapperStyled>
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
             <PersonNameStyled>Jakub Hampl</PersonNameStyled>
-            <PersonEmailStyled>jakub.hampl@solar-components.cz</PersonEmailStyled>
+            <PersonEmailStyled>{ebg13('wnxho.unzcy@fbyne-pbzcbaragf.pm')}</PersonEmailStyled>
             <PersonPhoneStyled>(+420) 734 462 877</PersonPhoneStyled>
           </PersonDescWrapperStyled>
         </PersonWrapperStyled>
@@ -24,7 +25,7 @@ export default function ContactPage() {
           <PersonRightDescWrapperStyled>
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
             <RightPersonNameStyled>Šárka Veverková</RightPersonNameStyled>
-            <PersonEmailStyled>info@solar-components.cz</PersonEmailStyled>
+            <PersonEmailStyled>{ebg13('vasb@fbyne-pbzcbaragf.pm')}</PersonEmailStyled>
             <PersonRightPhoneStyled>(+420) 773 700 475</PersonRightPhoneStyled>
           </PersonRightDescWrapperStyled>
           <RightPersonImageStyled image="avatar_female" />
@@ -49,7 +50,7 @@ export default function ContactPage() {
             DIČ: CZ 194 13 190<br />
             Sídlo firmy: Češkova 889, Zelené Předměstí, 530 02, Pardubice<br />
             Adresa skladu: Palackého tř. 801, Chrudim III 537 01 Chrudim<br />
-            Email: info@solar-components.cz<br />
+            Email: {ebg13('vasb@fbyne-pbzcbaragf.pm')}<br />
             Web: www.solar-components.cz<br />
             Účet: 2302583095/2010<br />
             IBAN: CZ37 2010 0000 0023 0258 3095<br />

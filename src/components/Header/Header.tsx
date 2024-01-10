@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import FullLogo from '@/SVGs/FullLogo'
 import SimilarLogoDesign from '@/SVGs/SimilarLogoDesign'
 import Link from 'next/link'
+import ReactGA from 'react-ga4';
 
 export default function Header() {
   const activeMenu = React.useRef<HTMLLIElement | null>(null)
@@ -12,9 +13,10 @@ export default function Header() {
   const qaRef = React.useRef<HTMLButtonElement | null>(null)
   const [hoveredMenuDetails, setHoveredMenuDetails] = React.useState<{ width: number; anotherWidth: number; left: number; anotherLeft: number }>({ width: 0, anotherWidth: 0, left: 0, anotherLeft: 0 })
   const currRoute = usePathname().split('/')[1]
-  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(window.innerWidth > 1320)
+  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1320 : false)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const [menuClicked, setMenuClicked] = React.useState<Boolean>(false)
+  const [isBig, setIsBig] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 650 : false)
   const menuRoutes = [
     {
       route: '',
@@ -35,7 +37,7 @@ export default function Header() {
   ]
 
   const onHover = (element: any) => {
-    if (menuClicked || element.target === menuRef.current || element.target.parentNode === qaRef.current || menuRef.current === null || activeMenu.current === null) return
+    if (!isBig || menuClicked || element.target === menuRef.current || element.target.parentNode === qaRef.current || menuRef.current === null || activeMenu.current === null) return
     if (element.target === qaRef.current) {
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
@@ -64,7 +66,7 @@ export default function Header() {
   }
 
   const onLeave = () => {
-    if (activeMenu.current === null || menuRef.current === null || menuClicked) return
+    if (activeMenu.current === null || menuRef.current === null || menuClicked || !isBig) return
 
     const activeMenuDetails = activeMenu.current.getBoundingClientRect()
     const menuDetails = menuRef.current.getBoundingClientRect()
@@ -79,7 +81,7 @@ export default function Header() {
   }
 
   React.useEffect(() => {
-    if (activeMenu.current === null || menuRef.current === null) return
+    if (activeMenu.current === null || menuRef.current === null || !isBig) return
 
     const activeMenuDetails = activeMenu.current.getBoundingClientRect()
     const menuDetails = menuRef.current.getBoundingClientRect()
@@ -93,10 +95,12 @@ export default function Header() {
     })
 
     const resizeWindow = () => {
+      const newBig = window.innerWidth > 650
       let newState = false
       if (window.innerWidth > 1320) newState = true
       if (showSimilarLogo !== newState) setShowSimilarLogo(newState)
-      if (activeMenu.current === null || menuRef.current === null) return
+      setIsBig(newBig)
+      if (!newBig || activeMenu.current === null || menuRef.current === null) return
 
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
@@ -112,13 +116,13 @@ export default function Header() {
 
     window.addEventListener('resize', resizeWindow);
     return () => window.removeEventListener('resize', resizeWindow)
-  }, [activeMenu, showSimilarLogo])
+  }, [activeMenu, showSimilarLogo, isBig])
 
   React.useEffect(() => {
     setMenuClicked(false)
   }, [currRoute])
 
-  if (window.location.hash === '#faq' && firstTimeOnRoute) {
+  if (typeof window !== 'undefined' && window.location.hash === '#faq' && firstTimeOnRoute) {
     setFirstTimeOnRoute(false)
     if (currRoute === '')
       setTimeout(() => {
@@ -137,19 +141,29 @@ export default function Header() {
           return (
             <NavbarListStyled key={index} active={menuRouteObj.route === currRoute} {...conditionalRef}>
               <Link onClick={({ target }: any) => {
-                setMenuClicked(true)
-                setHoveredMenuDetails({
-                  left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),
-                  width: target.parentNode.getBoundingClientRect().width,
-                  anotherLeft: hoveredMenuDetails.anotherLeft,
-                  anotherWidth: target.parentNode.getBoundingClientRect().width - 15,
-                })
+                const clicked = menuRoutes.find(route => route.name === target.innerHTML)?.route
+                if (currRoute === clicked) return
+                ReactGA.send({ hitType: 'pageview', page: `/${clicked}` })
+                if (isBig) {
+                  setMenuClicked(true)
+                  setHoveredMenuDetails({
+                    left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),
+                    width: target.parentNode.getBoundingClientRect().width,
+                    anotherLeft: hoveredMenuDetails.anotherLeft,
+                    anotherWidth: target.parentNode.getBoundingClientRect().width - 15,
+                  })
+                }
               }} href={`/${menuRouteObj.route}`}>{menuRouteObj.name}</Link>
             </NavbarListStyled>
           )}
         )}
         <QAButtonStyled ref={qaRef}>
-          <Link href='/#faq' onClick={() => setFirstTimeOnRoute(true)}>FAQ</Link>
+          <Link href='/#faq' onClick={() => {
+              ReactGA.event({ action: 'faq', category: 'actions' })
+              if (currRoute === '') return
+              ReactGA.send({ hitType: 'pageview', page: '/' })
+              if (isBig) setFirstTimeOnRoute(true)
+            }}>FAQ</Link>
         </QAButtonStyled>
       </NavbarWrapperStyled>
       {showSimilarLogo && <SimilarLogoDesign height={40} />}

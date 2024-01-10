@@ -2,6 +2,11 @@ import { Colors } from "@/utils/Colors";
 import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding-top: 1rem;
+    text-align: center;
+  }
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,7 +16,7 @@ export const WrapperStyled = styled.div`
   gap: .6rem;
 `;
 
-export const LandingTextStyled = styled.h5`
+export const LandingTextStyled = styled.h1`
   font-weight: 700;
   font-size: 48px;
   margin: 0;
@@ -29,20 +34,23 @@ export const LandingDescStyled = styled.p`
 `;
 
 export const LandingButtonWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    justify-content: center;
+  }
+
   display: flex;
   align-items: center;
   gap: 1rem;
 `;
 
 export const LandingButtonStyled = styled.button`
-  font-weight: 600;
   font-size: 14px;
   background-color: ${Colors.main.white};
   color: ${Colors.main.orangish};
   border: 2px solid ${Colors.main.orangish};
   padding: .3rem 1.8rem;
   border-radius: 12px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all .2s ease;
   user-select: none;
   white-space: nowrap;
@@ -73,6 +81,10 @@ export const LandingPlaceholderStyled = styled.span`
 `;
 
 export const LandingBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: 0;
   left: calc(-10vw - 2px);

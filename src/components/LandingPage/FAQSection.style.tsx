@@ -9,6 +9,10 @@ export const WrapperStyled = styled.div`
 `;
 
 export const FAQBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: -2.5vw;
+  }
+
   position: absolute;
   bottom: -2px;
   left: -10vw;
@@ -25,7 +29,11 @@ export const FAQWrapperStyled = styled.div`
   border-radius: 6px;
 `;
 
-export const FAQTitleStyled = styled.h3`
+export const FAQTitleStyled = styled.h1`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   margin: 0;
   font-size: 64px;
   font-weight: 200;
@@ -39,10 +47,14 @@ export const FAQTitleStyled = styled.h3`
 `;
 
 export const FAQSubtitleWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
 `;
 
-export const FAQSubtitleStyled = styled.h5`
+export const FAQSubtitleStyled = styled.h1`
   position: absolute;
   margin: 0;
   padding: 1rem 0;
@@ -59,12 +71,17 @@ export const FAQSubtitleStyled = styled.h5`
 `;
 
 export const FAQDrowpdownContainerWrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding: 1rem 1rem;
+  }
+
   padding: 1rem 3rem;
 `;
 
 export const FAQDescStyled = styled.span`
   font-size: 21px;
-  color: ${Colors.main.lightGray};
+  font-weight: 600;
+  color: ${Colors.main.orange};
 `;
 
 export const FAQDrowpdownsWrapperStyled = styled.div`
@@ -79,15 +96,23 @@ export const FAQDrowpdownWrapperStyled = styled.div`
 `;
 
 export const FAQDrowpdownTopWrapperStyled = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${Colors.main.black};
-  padding: 2px 12px 2px 12px;
+  padding: 2px 24px 2px 12px;
   cursor: pointer;
+
+  & > svg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 
-export const FAQDrowpdownTitleStyled = styled.h6`
+export const FAQDrowpdownTitleStyled = styled.h1`
   font-size: 18px;
   margin: 0;
 `;
@@ -97,6 +122,10 @@ export const FAQDrowpdownContentWrapperStyled = styled.div<{ open: Boolean }>`
   transition: all .4s ease;
   clip-path: ${({ open }) => open ? 'inset(0 0 0 0)' : 'inset(0 0 100% 0)'};
   max-height: ${({ open }) => open ? '63px' : '0'};
+
+  @media (max-width: 650px) {
+    max-height: ${({ open }) => open ? '140px' : '0'};
+  }
 `;
 
 export const FAQDrowpdownContentTextStyled = styled.p`

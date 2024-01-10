@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
 })
   
 
-export async function sendMail(toEmail, subject, message, htmlMessage) {
+const sendMail = async(toEmail, subject, message, htmlMessage) => {
   const mailOptions = {
     from: `info@solar-components.cz`,
     to: toEmail,
@@ -22,17 +22,17 @@ export async function sendMail(toEmail, subject, message, htmlMessage) {
 }
 
 export async function POST(req) {
-    const { subject, message, email, name } = await req.json()
+    const { message, email, name, wantPriceList } = await req.json()
     const formattedMessage = `
       <span>Jméno: ${name}</span> <br />
       <span>Email: ${email}</span> <br />
+      ${wantPriceList ? '<span>Chce zaslat ceník!</span> <br />' : ''}
       <hr />
-      <span>Předmět: ${subject}</span> <br />
       <p>${message}</p>
     `
  
     const success = await sendMail(
-      "entitak@gmail.com",
+      "info@solar-components.cz",
       "Poptávka z webu",
       message,
       formattedMessage,

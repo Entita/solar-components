@@ -11,6 +11,12 @@ body {
   scroll-behavior: smooth;
 }
 
+@media screen and (max-width: 650px) {
+  body {
+    padding: 2.5vh 2.5vw 0 2.5vw;
+  }
+}
+
 button, label, input[type=checkbox] {
   user-select: none;
   cursor: pointer;

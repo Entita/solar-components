@@ -1,21 +1,77 @@
 import { Colors } from "@/utils/Colors";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
   position: fixed;
   bottom: 1rem;
-  right: 2rem;
-  border: 2px solid ${Colors.main.black};
+  right: 1rem;
   border-radius: 4px;
-  background-color: white;
+  z-index: 999;
 `;
 
-export const ContactUsButtonStyled = styled.button`
-  border: unset;
-  display: block;
+export const ContactUsWrapperStyled = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: ${Colors.main.orange};
+  border-radius: 24px;
+  cursor: pointer;
+
+  & > svg {
+    box-shadow:
+    inset 0 0 0 0px ${Colors.main.white},
+    inset 0 0 0 4px ${Colors.main.lightOrange};
+    border-radius: 50%;
+    padding: 12px;
+    color: ${Colors.main.orange};
+    background-color: ${Colors.main.white};
+  }
 `;
 
-export const ContentWrapperStyled = styled.div<{ disabled: Boolean }>`
+export const ContactUsButtonStyled = styled.span`
+  text-transform: uppercase;
+  color: ${Colors.main.white};
+  padding: 0 12px 0 6px;
+`;
+
+export const ContentWrapperStyled = styled.div`
+  border-radius: 6px;
+  border: 4px solid ${Colors.main.lightOrange};
+  backdrop-filter: blur(3px) contrast(0.85);
+  background-color: ${Colors.main.orange};
+
+  svg {
+    position: absolute;
+    color: ${Colors.main.white};
+    top: 4px;
+    right: 6px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  *::-webkit-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *:-moz-placeholder {
+      color: ${Colors.main.orange};
+      opacity: 1;
+  }
+  *::-moz-placeholder {
+      color: ${Colors.main.orange};
+      opacity: 1;
+  }
+  *:-ms-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *::-ms-input-placeholder {
+      color: ${Colors.main.orange};
+  }
+  *::placeholder {
+      color: ${Colors.main.orange};
+  }
+`;
+
+export const BlurWrapperStyled = styled.div<{ disabled: Boolean }>`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -23,17 +79,6 @@ export const ContentWrapperStyled = styled.div<{ disabled: Boolean }>`
   pointer-events: ${({ disabled }) => disabled && `none`};
   filter: ${({ disabled }) => disabled && `blur(2px)`};
 `;
-
-const pulsOut = keyframes`
-  0%, 50% {
-    box-shadow: 0 0 0 0 black;
-    opacity: 0;
-  }
-  100% {
-    box-shadow: 0 0 0 1rem black;
-    opacity: 1;
-  }
-`
 
 export const LoadingWrapperStyled = styled.div`
   position: absolute;
@@ -45,51 +90,85 @@ export const LoadingWrapperStyled = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-
-  & > div::before, & > div::after {
-    animation: ${pulsOut} 1.8s ease-in-out infinite;
-    filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.75));
-  }
-
-  & > div::before{
-    box-shadow: inset 0 0 0 1rem black;
-  }
-
-  & > div::after{
-    box-shadow: 0 0 0 0 black;
-  }
-`;
-
-export const TitleFormWrapperStyled = styled.div`
-  display: flex;
-
-  & > svg {
-    margin-left: auto;
-    cursor: pointer;
-  }
 `;
 
 export const TitleTextStyled = styled.div`
+  color: ${Colors.main.white};
+  letter-spacing: 2px;
+`;
+
+const InputStyled = styled.input<{ error: Boolean }>`
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background-color: ${Colors.main.white};
+  border-color: ${({ error }) => error ? 'red' : Colors.main.orangish};
+  color: ${Colors.main.orange};
+  transition: .2s ease;
+  outline: unset;
+
+  &:focus {
+    border-color: ${({ error }) => error ? 'red' : Colors.main.white};
+  }
+`;
+
+export const NameFormStyled = styled(InputStyled)`
   
 `;
 
-export const TitleFormStyled = styled.input`
+export const EmailFormStyled = styled(InputStyled)`
   
 `;
 
-export const NameFormStyled = styled.input`
-  
-`;
-
-
-export const EmailFormStyled = styled.input`
-  
-`;
-
-export const DescFormStyled = styled.textarea`
+export const DescFormStyled = styled.textarea<{ error: Boolean }>`
   resize: none;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 4px 6px;
+  background-color: ${Colors.main.white};
+  border-color: ${({ error }) => error ? 'red' : Colors.main.orangish};
+  color: ${Colors.main.orange};
+  min-height: 80px;
+  min-width: 200px;
+  transition: .2s ease;
+  outline: unset;
+
+  &:focus {
+    border-color: ${({ error }) => error ? 'red' : Colors.main.white};
+  }
+`;
+
+export const WantPriceListWrapperStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const WantPriceListStyled = styled.input`
+  
+`;
+
+export const WantPriceListLabelStyled = styled.label`
+  padding-left: 2px;
+  color: ${Colors.main.white};
+  font-size: 13px;
 `;
 
 export const SendButtonFormStyled = styled.button`
-  
+  border-radius: 6px;
+  border: 2px solid ${Colors.main.lightOrange};
+  padding: 4px 0;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+  font-weight: bold;
+  color: ${Colors.main.orange};
+  background-color: ${Colors.main.white};
+  transition: 0.2s ease;
+
+  &:hover {
+    color: ${Colors.main.lightOrange};
+    border-color: ${Colors.main.white};
+  }
 `;

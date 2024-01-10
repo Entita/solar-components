@@ -2,6 +2,10 @@ import { Colors } from "@/utils/Colors";
 import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
+  @media (max-width: 650px) {
+    padding-top: 0;
+  }
+  
   position: relative;
   display: flex;
   column-gap: 5vw;
@@ -10,6 +14,10 @@ export const WrapperStyled = styled.div`
 `;
 
 export const ChooseUsTopBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   top: calc(-25vh - 2px);
   left: calc(-10vw - 2px);
@@ -35,7 +43,7 @@ export const ChooseUsSectionWrapperStyled = styled.div`
   gap: .4rem;
 `;
 
-export const ChooseUsSectionTitleStyled = styled.h5`
+export const ChooseUsSectionTitleStyled = styled.h1`
   margin: 0;
   font-weight: 700;
   font-size: 32px;
@@ -50,6 +58,7 @@ export const ChooseUsSectionTextStyled = styled.p`
 
 export const ChooseUsOrangeTextStyled = styled.span`
   color: ${Colors.main.orangish};
+  font-weight: 600;
 `;
 
 export const IconsWrapperStyled = styled.div`
@@ -66,15 +75,15 @@ export const IconsWrapperStyled = styled.div`
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 1px;
-    background-color: ${Colors.main.orangish};
+    width: 2px;
+    background-color: ${Colors.main.orange};
     z-index: -1;
   }
 `;
 
 export const IconWrapperStyled = styled.div`
   position: relative;
-  border: 1px solid ${Colors.main.orangish};
+  border: 2px solid ${Colors.main.orange};
   border-radius: 50%;
   background-color: ${Colors.main.white};
   width: 130px;
@@ -94,12 +103,16 @@ export const IconNumberStyled = styled.span`
   left: -50px;
   color: ${Colors.main.orangish};
   
-  font-weight: 200;
+  font-weight: 500;
   font-size: 21px;
   user-select: none;
 `;
 
 export const ChooseUsBottomBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: 0;
   left: calc(-10vw - 2px);

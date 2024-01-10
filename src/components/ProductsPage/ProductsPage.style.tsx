@@ -11,6 +11,8 @@ export const WrapperStyled = styled.div`
 export const ProductLoadingWrapperStyled = styled.div`
   display: flex;
   justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap-reverse;
 `;
 
 export const CanvasLoadingStyled = styled.div`
@@ -25,6 +27,7 @@ export const CanvasLoadingStyled = styled.div`
 export const ContentLoadingStyled = styled.div`
   display: flex;
   flex-direction: column;
+  width: 650px;
   gap: 4px;
 `;
 
@@ -93,7 +96,6 @@ export const ContentWrapperLoadingStyled = styled.div`
   flex-direction: column;
   gap: 4px;
   height: 100%;
-  width: 500px;
 `;
 
 export const DownloadLoadingStyled = styled.div`
@@ -109,7 +111,7 @@ export const ProductsHeaderWrapperStyled = styled.div`
   margin-top: 1rem;
 `;
 
-export const ProductsTitleStyled = styled.h2`
+export const ProductsTitleStyled = styled.h1`
   color: ${Colors.main.black};
   font-size: 48px;
   font-weight: 400;
@@ -118,7 +120,42 @@ export const ProductsTitleStyled = styled.h2`
 
 export const ProductsDescStyled = styled.p`
   color: ${Colors.main.black};
+  text-align: justify;
   font-size: 16px;
   font-weight: 200;
   margin: 0;
+`;
+
+export const ProductsDownloadStyled = styled.button`
+  position: relative;
+  margin-top: 1rem;
+  padding: 2px 0.6rem;
+  border: 1px solid ${Colors.main.orange};
+  border-radius: 3px;
+  background-color: ${Colors.main.white};
+  color: ${Colors.main.orangish};
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: all .2s ease;
+  width: 50%;
+  left: 25%;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: ${Colors.main.orange};
+    height: 2px;
+    left: calc(-50% - 1px);
+    width: calc(200% + 2px);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &:hover {
+    background-color: ${Colors.main.orangish};
+    color: ${Colors.main.white};
+  }
 `;

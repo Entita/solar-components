@@ -2,6 +2,10 @@ import { Colors } from "@/utils/Colors";
 import styled, { css } from "styled-components";
 
 export const CopyrightBottomBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: calc(-2.5vw - 2px);
+  }
+
   position: absolute;
   bottom: -2px;
   left: calc(-10vw - 2px);
@@ -15,6 +19,10 @@ export const CopyrightBottomBackgroundStyled = styled.div`
 `;
 
 export const CopyrightBackgroundStyled = styled.div`
+  @media (max-width: 650px) {
+    left: -2.5vw;
+  }
+
   position: absolute;
   bottom: -2px;
   left: -10vw;
@@ -24,12 +32,17 @@ export const CopyrightBackgroundStyled = styled.div`
   z-index: -2;
 `;
 
-export const LeftTextStyled = styled.h4`
+export const LeftTextStyled = styled.h1`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
   writing-mode: vertical-lr;
   rotate: 180deg;
   color: ${Colors.main.white};
-  font-weight: 400;
+  font-weight: 600;
+  text-shadow: 0 0 3px ${Colors.main.blackish};
   margin: 0;
   user-select: none;
   text-align: end;
@@ -41,7 +54,7 @@ export const LeftTextStyled = styled.h4`
     height: 75%;
     top: -2px;
     left: -10px;
-    border: 1px solid ${Colors.main.white};
+    border: 2px solid ${Colors.main.whitish};
   }
 
   &::after {
@@ -50,13 +63,14 @@ export const LeftTextStyled = styled.h4`
     width: 4px;
     height: 50%;
     top: -2px;
-    left: -9px;
+    left: -8px;
     background-color: ${Colors.main.white};
   }
 `;
 
 export const ContactUsWrapperStyled = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   gap: .2rem;
@@ -65,12 +79,16 @@ export const ContactUsWrapperStyled = styled.div`
   color: ${Colors.main.orangish};
 `;
 
-export const RightTextStyled = styled.h4`
+export const RightTextStyled = styled.h1`
+  @media (max-width: 650px) {
+    display: none;
+  }
+
   position: relative;
   writing-mode: vertical-rl;
   color: ${Colors.main.orangish};
   letter-spacing: 4px;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0;
   user-select: none;
 
@@ -81,7 +99,7 @@ export const RightTextStyled = styled.h4`
     height: 75%;
     bottom: -2px;
     left: -10px;
-    border: 1px solid ${Colors.main.orangish};
+    border: 2px solid ${Colors.main.orangish};
   }
 
   &::after {
@@ -90,35 +108,40 @@ export const RightTextStyled = styled.h4`
     width: 4px;
     height: 50%;
     bottom: -2px;
-    left: -9px;
+    left: -8px;
     background-color: ${Colors.main.orangish};
   }
 `;
 
-export const ContactUsTitleStyled = styled.h5`
+export const ContactUsTitleStyled = styled.h1`
   font-size: 64px;
   letter-spacing: 2px;
   color: ${Colors.main.white};
-  text-shadow: -1px -1px 0 ${Colors.main.yellowish}, 1px -1px 0 ${Colors.main.yellowish}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
+  text-shadow: -1px -1px 0 ${Colors.main.blackish}, 1px -1px 0 ${Colors.main.blackish}, -1px 1px 0 ${Colors.main.yellowish}, 1px 1px 0 ${Colors.main.yellowish};
   margin: 0;
+  text-align: center;
 `;
 
 export const ContactCINStyled = styled.span`
   font-weight: 200;
   padding-bottom: .4rem;
+  color: ${Colors.main.blackish};
 `;
 
 export const ContactUsMailStyled = styled.span`
+  color: ${Colors.main.blackish};
   font-weight: 600;
   text-decoration: underline;
   letter-spacing: 1px;
 `;
 
 export const ContactUsNumberStyled = styled.span`
+  color: ${Colors.main.blackish};
   font-weight: 600;
 `;
 
 export const CopyrightStyled = styled.span`
+  color: ${Colors.main.blackish};
   padding-top: .6rem;
   font-size: 14px;
   font-weight: 200;
@@ -150,8 +173,10 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
     }
 
     ${RightTextStyled} {
+      text-shadow: 0 0 2px ${Colors.main.lightGray};
+
       &::before {
-        border: 1px solid ${Colors.main.white};
+        border: 2px solid ${Colors.main.white};
       }
 
       &::after {
@@ -160,10 +185,11 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
     }
 
     ${LeftTextStyled} {
+      text-shadow: 0 0 2px ${Colors.main.lightGray};
       color: ${Colors.main.orangish};
 
       &::before {
-        border: 1px solid ${Colors.main.orangish};
+        border: 2px solid ${Colors.main.orangish};
       }
 
       &::after {

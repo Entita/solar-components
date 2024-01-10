@@ -24,6 +24,9 @@ export const TitleWrapperStyled = styled.div`
   width: 300px;
 
   &::before {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     top: 50%;
@@ -35,6 +38,9 @@ export const TitleWrapperStyled = styled.div`
   }
 
   &::after {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     top: 50%;
@@ -46,7 +52,7 @@ export const TitleWrapperStyled = styled.div`
   }
 `;
 
-export const TitleStyled = styled.h2`
+export const TitleStyled = styled.h1`
   color: ${Colors.main.black};
   font-size: 64px;
   text-transform: uppercase;
@@ -58,6 +64,11 @@ export const TitleStyled = styled.h2`
 export const PersonWrapperStyled = styled.div`
   display: flex;
   column-gap: 4rem;
+
+  @media (max-width: 650px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
@@ -103,6 +114,10 @@ export const PersonDescWrapperStyled = styled.div`
   justify-content: center;
   row-gap: 4px;
   margin-top: -2rem;
+
+  @media (max-width: 650px) {
+    margin-top: 0;
+  }
 `;
 
 export const PersonRightDescWrapperStyled = styled(PersonDescWrapperStyled)`
@@ -115,9 +130,11 @@ export const PersonTextStyled = styled.span`
   text-transform: uppercase;
 `;
 
-export const PersonNameStyled = styled.h4`
+export const PersonNameStyled = styled.h1`
   margin: 0;
   color: ${Colors.main.orangish};
+  background-color: ${`${Colors.main.white}80`};
+  border-radius: 8px;
   font-weight: 600;
   font-size: 24px;
   margin-top: 1rem;
@@ -141,6 +158,9 @@ export const PersonPhoneStyled = styled.span`
   width: fit-content;
 
   &::after {
+    @media (max-width: 650px) {
+      display: none;
+    }
     position: absolute;
     content: '';
     bottom: -1rem;
@@ -157,10 +177,14 @@ export const PersonRightPhoneStyled = styled(PersonPhoneStyled)`
 
 export const MapWrapperStyled = styled.div`
   display: flex;
+  flex-wrap: wrap;
   column-gap: 4rem;
 `
 
 export const MapStyled = styled.div`
+  @media (max-width: 650px) {
+    width: 100%;
+  }
   border: 2px solid #00000025;
   box-shadow: #00000025 -2px 2px 4px;
   border-radius: 8px;
@@ -177,8 +201,14 @@ export const MapDescWrapperStyled = styled.div`
 
 export const MapTextStyled = styled(PersonTextStyled)``
 
-export const MapCityStyled = styled(RightPersonNameStyled)`
+export const MapCityStyled = styled.h1`
+  color: ${Colors.main.white};
+  background-color: ${`${Colors.main.yellowish}80`};
   margin: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 1rem;
 `
 
 export const MapAddressStyled = styled.span`
@@ -191,13 +221,18 @@ export const MoreInfoStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin: 3rem 0;
+  @media (max-width: 650px) {
+    padding-top: 1rem;
+    border-top: 1px solid ${Colors.main.orangish};
+    margin: 2rem 0;
+  }
 `
 
 export const MoreInfoTextStyled = styled(PersonTextStyled)`
 
 `
 
-export const MoreInfoTitleStyled = styled.h3`
+export const MoreInfoTitleStyled = styled.h1`
   font-weight: 600;
   font-size: 32px;
   margin: .6rem 0;

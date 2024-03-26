@@ -1,1 +1,1 @@
-[Product page]([https://pages.github.com/](https://www.solar-components.cz)https://www.solar-components.cz)
+[Product page](https://www.solar-components.cz)

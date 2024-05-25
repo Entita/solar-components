@@ -22,14 +22,14 @@ export const NavbarWrapperStyled = styled.ul<{ width: Number, left: Number, anot
   margin: 0;
   padding: 0;
 
-  @media (max-width: 650px) {
+  @media (max-width: 817px) {
     justify-content: center;
     padding-bottom: 8px;
     border-bottom: 1px solid ${Colors.main.orangish};
   }
 
   &::before {
-    @media (max-width: 650px) {
+    @media (max-width: 817px) {
       display: none;
     }
     position: absolute;
@@ -43,7 +43,7 @@ export const NavbarWrapperStyled = styled.ul<{ width: Number, left: Number, anot
   }
 
   &::after {
-    @media (max-width: 650px) {
+    @media (max-width: 817px) {
       display: none;
     }
     position: absolute;
@@ -78,7 +78,7 @@ export const QAButtonStyled = styled.button`
   white-space: nowrap;
   background-color: transparent;
   padding: 0;
-  
+
   & > a {
     transition: all .2s ease;
     text-decoration: none;

@@ -31,7 +31,7 @@ export default function ContactPage() {
           <RightPersonImageStyled image="avatar_female" />
         </PersonRightWrapperStyled>
 
-        <MapWrapperStyled>
+        {/* <MapWrapperStyled>
           <MapStyled>
             <Map />
           </MapStyled>
@@ -40,7 +40,7 @@ export default function ContactPage() {
             <MapCityStyled>Chrudim</MapCityStyled>
             <MapAddressStyled>Palackého tř. 801, Chrudim III<br />537 01 Chrudim</MapAddressStyled>
           </MapDescWrapperStyled>
-        </MapWrapperStyled>
+        </MapWrapperStyled> */}
 
         <MoreInfoStyled>
           <MoreInfoTextStyled>Další informace</MoreInfoTextStyled>

@@ -16,7 +16,7 @@ export default function Header() {
   const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1320 : false)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const [menuClicked, setMenuClicked] = React.useState<Boolean>(false)
-  const [isBig, setIsBig] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 650 : false)
+  const [isBig, setIsBig] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 817 : false)
   const menuRoutes = [
     {
       route: '',
@@ -30,6 +30,10 @@ export default function Header() {
       route: 'montaz',
       name: 'montáž',
     },
+    // {
+    //   route: 'eshop',
+    //   name: 'e-shop',
+    // },
     {
       route: 'produkty',
       name: 'produkty',
@@ -42,7 +46,7 @@ export default function Header() {
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
       const offsetX = activeMenuDetails.x - menuDetails.x
-  
+
       setHoveredMenuDetails({
         left: offsetX,
         anotherLeft: offsetX,
@@ -55,7 +59,7 @@ export default function Header() {
       const anotherOffsetX = hoveredMenuItemDetails.x - menuDetails.x
       let anotherWidth = hoveredMenuItemDetails.width
       if (element.target === activeMenu.current || element.target.parentElement === activeMenu.current) anotherWidth -= 15
-  
+
       setHoveredMenuDetails({
         left: hoveredMenuDetails.left,
         width: hoveredMenuDetails.width,
@@ -95,7 +99,7 @@ export default function Header() {
     })
 
     const resizeWindow = () => {
-      const newBig = window.innerWidth > 650
+      const newBig = window.innerWidth > 817
       let newState = false
       if (window.innerWidth > 1320) newState = true
       if (showSimilarLogo !== newState) setShowSimilarLogo(newState)
@@ -105,7 +109,7 @@ export default function Header() {
       const activeMenuDetails = activeMenu.current.getBoundingClientRect()
       const menuDetails = menuRef.current.getBoundingClientRect()
       const offsetX = activeMenuDetails.x - menuDetails.x
-  
+
       setHoveredMenuDetails({
         left: offsetX,
         anotherLeft: offsetX,
@@ -130,7 +134,7 @@ export default function Header() {
       }, 50)
     else window.document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
   }
-  
+
   return (
     <MenuWrapperStyled>
       <FullLogo height={118} />

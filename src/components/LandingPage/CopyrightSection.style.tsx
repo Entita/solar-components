@@ -185,7 +185,7 @@ export const WrapperStyled = styled.div<{ orange: Boolean }>`
     }
 
     ${LeftTextStyled} {
-      text-shadow: 0 0 2px ${Colors.main.lightGray};
+      text-shadow: 0 0 2px ${Colors.main.black};
       color: ${Colors.main.orangish};
 
       &::before {

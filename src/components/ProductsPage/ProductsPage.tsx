@@ -8,7 +8,7 @@ export const products = [
   {
     id: 'hak',
     name: 'Nastavitelný vario hák 120mm',
-    desc: '<p>Střešní držák pro upevnění montážních profilů pro fotovoltaické panely na střechách pokrytých taškami. Zaručuje správnou stabilitu celé konstrukce.</p><span>K háku dodáváme <b>zdarma 3x vruty do dřeva</b> 6x50mm/50mm o materiálu A2.</span><br/><br /><span><b>Material:</b> Nerezová ocel h17 1.4016</span>',
+    desc: '<p>Střešní držák pro upevnění montážních profilů pro fotovoltaické panely na střechách pokrytých taškami. Zaručuje správnou stabilitu celé konstrukce.</p><span><b>Material:</b> Nerezová ocel h17 1.4016</span>',
   },
   {
     id: 'omega',

@@ -13,7 +13,7 @@ export default function Header() {
   const qaRef = React.useRef<HTMLButtonElement | null>(null)
   const [hoveredMenuDetails, setHoveredMenuDetails] = React.useState<{ width: number; anotherWidth: number; left: number; anotherLeft: number }>({ width: 0, anotherWidth: 0, left: 0, anotherLeft: 0 })
   const currRoute = usePathname().split('/')[1]
-  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1320 : false)
+  const [showSimilarLogo, setShowSimilarLogo] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 1583 : false)
   const [firstTimeOnRoute, setFirstTimeOnRoute] = React.useState<Boolean>(true)
   const [menuClicked, setMenuClicked] = React.useState<Boolean>(false)
   const [isBig, setIsBig] = React.useState<Boolean>(typeof window !== 'undefined' ? window.innerWidth > 817 : false)
@@ -23,20 +23,21 @@ export default function Header() {
       name: 'domů',
     },
     {
-      route: 'kontakt',
+      route: './kontakt',
       name: 'kontakt',
     },
     {
-      route: 'montaz',
+      route: './montaz',
       name: 'montáž',
     },
-    // {
-    //   route: 'eshop',
-    //   name: 'e-shop',
-    // },
     {
-      route: 'produkty',
+      route: './produkty',
       name: 'produkty',
+    },
+    {
+      route: '/docs.google.com/spreadsheets/d/16VqRzndFajs7D25tLbZYy-eNHpl7_KBersXdkF4LFEE?gid=1650439636',
+      name: 'ceník',
+      newTab: true,
     },
   ]
 
@@ -101,7 +102,7 @@ export default function Header() {
     const resizeWindow = () => {
       const newBig = window.innerWidth > 817
       let newState = false
-      if (window.innerWidth > 1320) newState = true
+      if (window.innerWidth > 1583) newState = true
       if (showSimilarLogo !== newState) setShowSimilarLogo(newState)
       setIsBig(newBig)
       if (!newBig || activeMenu.current === null || menuRef.current === null) return
@@ -140,15 +141,15 @@ export default function Header() {
       <FullLogo height={118} />
       <NavbarWrapperStyled ref={menuRef} width={hoveredMenuDetails.width} anotherWidth={hoveredMenuDetails.anotherWidth} left={hoveredMenuDetails.left} anotherLeft={hoveredMenuDetails.anotherLeft} onMouseMove={onHover} onMouseLeave={onLeave} >
         {menuRoutes.map((menuRouteObj: any, index: number) => {
-          const conditionalRef = menuRouteObj.route === currRoute ? { ref: activeMenu } : {}
+          const conditionalRef = menuRouteObj.route.replaceAll('./', '') === currRoute ? { ref: activeMenu } : {}
 
           return (
             <NavbarListStyled key={index} active={menuRouteObj.route === currRoute} {...conditionalRef}>
-              <Link onClick={({ target }: any) => {
+              <Link target={menuRouteObj.newTab ? '_blank' : '_self'} onClick={({ target }: any) => {
                 const clicked = menuRoutes.find(route => route.name === target.innerHTML)?.route
                 if (currRoute === clicked) return
-                ReactGA.send({ hitType: 'pageview', page: `/${clicked}` })
-                if (isBig) {
+                ReactGA.send({ hitType: 'pageview', page: clicked })
+                if (!menuRouteObj.newTab && isBig) {
                   setMenuClicked(true)
                   setHoveredMenuDetails({
                     left: target.parentNode.getBoundingClientRect().left - (menuRef.current?.getBoundingClientRect().x || 0),

@@ -45,7 +45,7 @@ export default function FAQSection() {
             />
             <FAQDropdown
               question='Jaká je běžná doba dodání dílů ?'
-              answer='Odpověď: Objednávky vyřizujeme, co nejdříve s dodáním maximálně do 5 pracovních dnů.'
+              answer='Odpověď: Objednávky vyřizujeme, co nejdříve s dodáním maximálně do 5 pracovních dnů, pokud je zboží skladem.'
             />
             <FAQDropdown
               question='Můžete mi poskytnout poradenství při výběru správných dílů?'

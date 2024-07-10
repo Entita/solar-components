@@ -72,8 +72,7 @@ export const PersonWrapperStyled = styled.div`
 `;
 
 export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
-  min-height: 25vh; // remove after adding Peli
-
+  padding-block: 10vh 0;
   position: relative;
   margin-left: auto;
 
@@ -89,6 +88,10 @@ export const PersonRightWrapperStyled = styled(PersonWrapperStyled)`
     aspect-ratio: 72/65;
     width: 100vw;
     z-index: -1;
+
+    @media screen and (max-width: 650px) {
+      right: -5vw;
+    }
   }
 `;
 
@@ -142,7 +145,7 @@ export const PersonNameStyled = styled.h1`
 
 export const RightPersonNameStyled = styled(PersonNameStyled)`
   color: ${Colors.main.white};
-  background-color: unset;
+  background-color: ${`${Colors.main.orangish}60`};
 `;
 
 export const PersonEmailStyled = styled.span`

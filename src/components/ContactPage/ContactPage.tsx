@@ -17,7 +17,7 @@ export default function ContactPage() {
             <PersonTextStyled>zavolej, napiš</PersonTextStyled>
             <PersonNameStyled>Jakub Hampl</PersonNameStyled>
             <PersonEmailStyled>{ebg13('wnxho.unzcy@fbyne-pbzcbaragf.pm')}</PersonEmailStyled>
-            <PersonPhoneStyled>(+420) 734 462 877</PersonPhoneStyled>
+            <PersonPhoneStyled>(+420) 732 433 877</PersonPhoneStyled>
           </PersonDescWrapperStyled>
         </PersonWrapperStyled>
 

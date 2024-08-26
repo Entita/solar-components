@@ -5,6 +5,11 @@ import Zoom from './Zoom';
 import { download } from './Product';
 
 export const products = [
+  // {
+  //   id: 'drzak_na_falc',
+  //   name: 'Držák na falc',
+  //   desc: '<p>Střešní držák pro upevnění montážních profilů pro fotovoltaické panely na střechách pokrytých taškami. Zaručuje správnou stabilitu celé konstrukce.</p><span><b>Material:</b> Nerezová ocel h17 1.4016</span>',
+  // },
   {
     id: 'hak',
     name: 'Nastavitelný vario hák 120mm',

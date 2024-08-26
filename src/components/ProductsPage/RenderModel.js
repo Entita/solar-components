@@ -8,7 +8,7 @@ export default function RenderModel({ model }) {
     <>
       <Canvas shadows camera={{ position: [-2, 1, -3.8], fov: 45 }} onClick={() => ReactGA.event({ action: model, category: 'products' })}>
         <Environment preset='sunset' resolution={256} blur={1} />
-        <Model model={model} /> 
+        <Model model={model} />
         <OrbitControls autoRotate autoRotateSpeed={0.5} maxDistance={5} minDistance={1.5} enableZoom minZoom={.1} maxZoom={2} enablePan={false} />
       </Canvas>
     </>
@@ -30,6 +30,10 @@ function Model({ model }) {
 }
 
 const adjustments = {
+  'drzak_na_falc': {
+    scale: 0.04,
+    position: [-1.5, 0.5, 0.75],
+  },
   'hak': {
     scale: 0.0125,
     position: [0.1, -0.35, -0.8],
